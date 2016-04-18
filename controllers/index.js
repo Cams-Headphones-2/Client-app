@@ -7,4 +7,9 @@ router.get('/', function(req, res, next) {
   // res.sendFile(__dirname + '/index.html')
 });
 
+router.get('/chart-builder', function(req, res, next) {
+  res.render('chart-builder', { title: 'Chart Builder' });
+  // res.sendFile(__dirname + '/index.html')
+});
+
 module.exports = router;
