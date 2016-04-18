@@ -18,7 +18,91 @@ var lastfm = new LastFM({
 //     }});
 
 
-var PasswordForm = React.createClass({
+var ArtistForm = React.createClass({
+      getInitialState: function(){
+        return {albumSearch: "", imgURL: "", artist: "", album: ''}
+      },
+
+      // validate: function(string) {
+      //   var self = this;
+      //   var state = this.state;
+      //   if(string.length<=10){
+      //     this.setState(state);
+      //   } else {
+      //     console.log('Too long too many characters no no no no.')
+      //   }
+      // },
+
+      handlealbumSearchChange: function(event){
+        console.log(event.target.value)
+        var state = this.state;
+        state.albumSearch = event.target.value;
+        this.setState(state);
+        // this.validate(this.state.imgURL);
+        console.log(this.state)
+      },
+
+      handleimgURLChange: function(event){
+        console.log(event.target.value)
+        var state = this.state;
+        state.imgURL = event.target.value;
+        this.setState(state);
+        // this.validate(this.state.imgURL);
+        console.log(this.state)
+      },
+      handleartistChange: function(event){
+        console.log(event.target.value)
+        var state = this.state;
+        state.artist = event.target.value;
+        this.setState(state);
+
+        // this.validate(this.state.artist);
+        console.log(this.state)
+      },
+      handlealbumChange: function(event){
+        console.log(event.target.value)
+        var state = this.state;
+        state.album = event.target.value;
+        this.setState(state);
+
+        // this.validate(this.state.album);
+        console.log(this.state)
+      },
+      handleSubmit: function(event){
+        event.preventDefault();
+        var self = this;
+        lastfm.album.albumSearch({album: self.state.albumSearch}, {success: function(data){
+              console.log(data)
+            }, error: function(code, message){
+            /* Show error message. */
+            }});
+      },
+      render: function(){
+        return(
+          <form className="artistForm" onSubmit={this.handleSubmit}>
+            <input type="text" placeholder="Search for an Album" onChange={this.handlealbumSearchChange} value={this.state.albumSearch}/>
+            <input type="text" placeholder="Your imgURL" onChange={this.handleimgURLChange} value={this.state.imgURL}/>
+            <input type="artist" placeholder="artist" onChange={this.handleartistChange} value={this.state.artist}/>
+            <input type="album" placeholder="album" onChange={this.handlealbumChange} value={this.state.album}/>
+            <input type="submit" value="post"/>
+          </form>
+
+          // <input type="text" placeholder="Your imgURL" onChange={this.handleimgURLChange} value={this.state.imgURL}/>
+          // <input type="artist" placeholder="artist" onChange={this.handleartistChange} value={this.state.artist}/>
+          // <input type="album" placeholder="album" onChange={this.handlealbumChange} value={this.state.album}/>
+          //
+
+
+        )
+      }
+    })
+
+    ReactDOM.render(<ArtistForm/>, document.getElementById('example'))
+
+
+
+
+    var PasswordForm = React.createClass({
       getInitialState: function(){
         return {name: "", password: "", email: ''}
       },
@@ -86,4 +170,4 @@ var PasswordForm = React.createClass({
       }
     })
 
-    ReactDOM.render(<PasswordForm/>, document.getElementById('example'))
+    ReactDOM.render(<PasswordForm/>, document.getElementById('example1'))
