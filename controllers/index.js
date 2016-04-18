@@ -75,4 +75,9 @@ router.get('/', function(req, res, next) {
 //   // });
 // });
 
+router.get('/chart-builder', function(req, res, next) {
+  res.render('chart-builder', { title: 'Chart Builder' });
+  // res.sendFile(__dirname + '/index.html')
+});
+
 module.exports = router;
