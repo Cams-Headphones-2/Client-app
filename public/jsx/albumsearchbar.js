@@ -81,11 +81,11 @@ var ArtistForm = React.createClass({
               var albumName = data.results.albummatches.album[0].name
               var albumCover = data.results.albummatches.album[0].image[2]["#text"]
               var albumArtist = data.results.albummatches.album[0].artist
-              var albumDiv = $('<div draggable="true" style="height: 400px; width: 400px; border: 1px dashed"></div>');
+              var albumDiv = $('<div draggable="true" style="height: 300px; width: 200px; border: 1px dashed"></div>');
               $(albumDiv).append('<img src ="' + albumCover + '">');
               $(albumDiv).append('<p>' + albumName + '</p>');
               $(albumDiv).append('<p>' + albumArtist + '</p>');
-              $('body').append(albumDiv);
+              $('#results-appender').append(albumDiv);
 
 
 
@@ -96,10 +96,13 @@ var ArtistForm = React.createClass({
       },
       render: function(){
         return(
-          <form className="artistForm" onSubmit={this.handleSubmit}>
-            <input type="text" placeholder="Search for an Album" onChange={this.handlealbumSearchChange} value={this.state.albumSearch}/>
-            <input type="submit" value="post"/>
-          </form>
+          <div id="results-container">
+            <form className="artistForm" onSubmit={this.handleSubmit}>
+              <input type="text" placeholder="Search for an Album" onChange={this.handlealbumSearchChange} value={this.state.albumSearch}/>
+              <input type="submit" value="post"/>
+            </form>
+            <div id="results-appender"></div>
+          </div>
 
           // <input type="text" placeholder="Your imgURL" onChange={this.handleimgURLChange} value={this.state.imgURL}/>
           // <input type="artist" placeholder="artist" onChange={this.handleartistChange} value={this.state.artist}/>
