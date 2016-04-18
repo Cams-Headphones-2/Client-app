@@ -1,6 +1,5 @@
 var React     = require('react'),
     ReactDOM  = require('react-dom'),
-    request   = require('superagent'),
     _         = require('lodash');
 
 
@@ -12,11 +11,11 @@ var lastfm = new LastFM({
       cache     : cache
     });
 
-lastfm.artist.getInfo({artist: 'The xx'}, {success: function(data){
-    /* Use data. */
-    }, error: function(code, message){
-    /* Show error message. */
-    }});
+// lastfm.artist.getInfo({artist: 'The xx'}, {success: function(data){
+//     /* Use data. */
+//     }, error: function(code, message){
+//     /* Show error message. */
+//     }});
 
 
 var PasswordForm = React.createClass({
@@ -87,4 +86,4 @@ var PasswordForm = React.createClass({
       }
     })
 
-    ReactDOM.render(<PasswordForm/>, document.getElementByTagName('body'))
+    ReactDOM.render(<PasswordForm/>, document.getElementById('example'))

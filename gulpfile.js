@@ -21,7 +21,7 @@ gulp.task('less', function(){
 });
 
 gulp.task('react', function() {
-  return gulp.src('./public/jsx/**/*.js', {read: false})
+  return gulp.src('./public/jsx/*.js', {read: false})
     .pipe(tap(function(file) {
       gutil.log('bundling ' + file.path);
 
