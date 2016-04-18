@@ -57,8 +57,5 @@ app.use(function(err, req, res, next) {
   });
 });
 
-// app.listen(3000,function(){
-//   console.log("Live at Port 3000");
-// });
 
 module.exports = app;
