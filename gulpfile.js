@@ -34,4 +34,4 @@ gulp.task('watch', function(){
   // Other watchers
 })
 
-gulp.task('default', ['less', 'react', 'watch']); //'react'
+gulp.task('default', ['less', 'react', 'watch']); 
