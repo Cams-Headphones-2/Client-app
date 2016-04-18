@@ -7,7 +7,7 @@ gulp.task('hello', function(){
 })
 
 gulp.task('less', function(){
-  return gulp.src('public/less/**/*.less')
+  return gulp.src('public/less/bootstrap.less')
     .pipe(less()) // Using gulp-less
     .pipe(gulp.dest('public/stylesheets/'))
 });
