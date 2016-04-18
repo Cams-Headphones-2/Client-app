@@ -14,7 +14,7 @@ var React     = require('react'),
 
 var ArtistForm = React.createClass({
       getInitialState: function(){
-        return {albumSearch: "", imgURL: "", artist: "", album: ''}
+        return {albumSearch: "", imgURL: "", artist: "", album: ""}
       },
 
       // validate: function(string) {
@@ -81,7 +81,7 @@ var ArtistForm = React.createClass({
               var albumName = data.results.albummatches.album[0].name
               var albumCover = data.results.albummatches.album[0].image[2]["#text"]
               var albumArtist = data.results.albummatches.album[0].artist
-              var albumDiv = $('<div></div>');
+              var albumDiv = $('<div draggable="true" style="height: 400px; width: 400px; border: 1px dashed"></div>');
               $(albumDiv).append('<img src ="' + albumCover + '">');
               $(albumDiv).append('<p>' + albumName + '</p>');
               $(albumDiv).append('<p>' + albumArtist + '</p>');
