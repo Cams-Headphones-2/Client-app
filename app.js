@@ -5,8 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var routes = require('./controllers/index');
+var users = require('./controllers/users');
 
 var app = express();
 
@@ -57,5 +57,8 @@ app.use(function(err, req, res, next) {
   });
 });
 
+// app.listen(3000,function(){
+//   console.log("Live at Port 3000");
+// });
 
 module.exports = app;
