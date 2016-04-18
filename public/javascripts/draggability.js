@@ -8,7 +8,7 @@ $('#build-btn').click(function() {
   $(newRow).append('<div class="dropzone"></div>');
   $(newRow).append('<div class="dropzone"></div>');
   $(newRow).append('<div class="dropzone"></div>');
-  $('#chart-area').append(newRow);
+  $('#build-btn').prepend(newRow);
 })
 
 /* events fired on the draggable target */
