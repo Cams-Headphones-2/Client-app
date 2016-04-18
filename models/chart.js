@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 
 var ChartSchema = new mongoose.Schema({
-  id            : Number,
-  authorId      : Number
+  authorId      : Number,
+  contents      : String
 });
 
 module.exports = mongoose.model('Chart', ChartSchema);
