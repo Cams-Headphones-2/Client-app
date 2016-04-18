@@ -63,11 +63,11 @@ router.get('/', function(req, res, next) {
   });
 }) // ------------------ GET about ---------------------------
 .get('/about', function(req, res, next) {
-  res.render('about', { title: 'About '});
+  res.render('about', { title: 'About'});
 }) // ------------------ GET chart-builder --------------------
 .get('/build', function(req, res, next) {
-  res.render('chart-builder' { title: 'Build a chart'});
-});
+  res.render('chart-builder', { title: 'Build a chart' });
+})
 // .post('/build', function(req, res, next) {
 //   // Chart.create({  :
 //   // }, function(err, chart) {
@@ -75,14 +75,8 @@ router.get('/', function(req, res, next) {
 //   // });
 // });
 
-
 router.get('/testdrag', function(req, res, next) {
   res.render('testdrag', { title: 'testdrag' });
-});
-
-router.get('/chart-builder', function(req, res, next) {
-  res.render('chart-builder', { title: 'Chart Builder' });
-  // res.sendFile(__dirname + '/index.html')
 });
 
 module.exports = router;
