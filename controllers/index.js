@@ -66,7 +66,7 @@ router.get('/', function(req, res, next) {
   res.render('about', { title: 'About '});
 }) // ------------------ GET chart-builder --------------------
 .get('/build', function(req, res, next) {
-  res.render('chart-builder' { title: 'Build a chart'});
+  res.render('chart-builder', { title: 'Build a chart'});
 });
 // .post('/build', function(req, res, next) {
 //   // Chart.create({  :
