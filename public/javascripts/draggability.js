@@ -1,5 +1,16 @@
 var dragged;
 
+
+$('#build-btn').click(function() {
+  var newRow = $('<div class="row"></div>');
+  var dropDiv = $('<div class="dropzone"></div>');
+  $(newRow).append('<div class="dropzone"></div>');
+  $(newRow).append('<div class="dropzone"></div>');
+  $(newRow).append('<div class="dropzone"></div>');
+  $(newRow).append('<div class="dropzone"></div>');
+  $('#build-btn').prepend(newRow);
+})
+
 /* events fired on the draggable target */
 document.addEventListener("drag", function( event ) {
 
