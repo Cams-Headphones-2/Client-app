@@ -2,12 +2,12 @@
 <div class="row">
     <!-- your first col -->
     <div class="col-sm-8 col1">
+      <div class="zone-container">
             <center><h1>NAME YOUR CHART HERE</h1></center>
             <hr/>
         <!-- your row inside the col -->
         <div class="row">
           <h4>Genre / Style Here (Optional)</h4>
-            <!-- your subcol inside the col -->
             <div class="dropzone"></div>
             <div class="dropzone"></div>
             <div class="dropzone"></div>
@@ -15,15 +15,16 @@
         </div>
         <br>
         <div class="row">
-            <!-- your subcol inside the col -->
             <div class="dropzone"></div>
             <div class="dropzone"></div>
             <div class="dropzone"></div>
             <div class="dropzone"></div>
         </div>
         <br>
-        <center><button type="button" id="build-btn" class="btn btn-warning">Load additional rows</button></center>
+      </div>
+      <center><button type="button" id="build-btn" class="btn btn-warning">Load additional rows</button></center>
     </div>
+
     <div class="col-sm-4 col2">
         <div class="col-sm-12"><center>Search for any album here. Then click-drag the element to your chart on the left. For best results, type in both the album name and the artist!</center></div>
         <br/>
@@ -31,6 +32,7 @@
 
           <!-- Indicates a successful or positive action -->
         <center><button type="button" class="btn btn-success btn-lg">Save My Chart</button></center>
+        <center><button type="button" id="delete-box" class="dropzone">Delete Album</button></center>
 
     </div>
 </div>
