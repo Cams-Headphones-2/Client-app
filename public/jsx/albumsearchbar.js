@@ -14,7 +14,7 @@ var React     = require('react'),
 
 var ArtistForm = React.createClass({
       getInitialState: function(){
-        return {albumSearch: "", imgURL: "", artist: "", album: ""}
+        return {albums: [], imgURL: "", artist: "", album: ""}
       },
 
       handlealbumSearchChange: function(event){
@@ -65,9 +65,16 @@ var ArtistForm = React.createClass({
               console.log(data.results.albummatches.album[0].image[2]["#text"]);
               console.log(data.results.albummatches.album[0].artist);
 
-              document.getElementById('results-appender').innerHTML = "";
+              // document.getElementById('results-appender').innerHTML = "";
 
               var state = self.state;
+              var albumInfo = {
+                albumName: data.results.albummatches.album[0].name,
+                albumCover: data.results.albummatches.album[0].image[2]["#text"],
+                albumArtist: data.results.albummatches.album[0].artist
+              }
+
+              state.albums.push(albumInfo);
               var albumName = data.results.albummatches.album[0].name;
               var albumCover = data.results.albummatches.album[0].image[2]["#text"];
               var albumArtist = data.results.albummatches.album[0].artist;
@@ -78,11 +85,11 @@ var ArtistForm = React.createClass({
 
               self.setState(state);
 
-              var albumDiv = $('<div draggable="true" class="album-div" style="height: 248px; width: 176px; border: 1px dashed; background-color: lightgreen"></div>');
-              $(albumDiv).append('<img draggable="false" src ="' + albumCover + '">');
-              $(albumDiv).append('<p>' + albumName + '</p>');
-              $(albumDiv).append('<p>' + albumArtist + '</p>');
-              $('#results-appender').append(albumDiv);
+              // var albumDiv = $('<div draggable="true" class="album-div" style="height: 248px; width: 176px; border: 1px dashed; background-color: lightgreen"></div>');
+              // $(albumDiv).append('<img draggable="false" src ="' + albumCover + '">');
+              // $(albumDiv).append('<p>' + albumName + '</p>');
+              // $(albumDiv).append('<p>' + albumArtist + '</p>');
+              // $('#results-appender').append(albumDiv);
 
 
 
@@ -98,14 +105,33 @@ var ArtistForm = React.createClass({
               <input type="text" placeholder="Search for an Album" onChange={this.handlealbumSearchChange} value={this.state.albumSearch}/>
               <input type="submit" value="post"/>
             </form>
-            <div id="results-appender"></div>
+            {
+              this.state.albums.map(function(album, i){
+                return <AlbumDiv albumCover={album.albumCover} album={album.albumName} artist={album.albumArtist} key={i} />
+              }.bind(this))
+            }
+
           </div>
 
         )
       }
     })
 
+    var AlbumDiv = React.createClass({
+      render: function() {
+        return (
+          <div draggable="true" className="album-div">
+            <img src={this.props.albumCover} draggable="false" />
+            <p>{this.props.album}</p>
+            <p>{this.props.artist}</p>
+          </div>
+        )
+      }
+    })
+
     ReactDOM.render(<ArtistForm/>, document.getElementById('example'))
+
+
 
     // <div draggable="true" className="album-div">
     // <img src={this.state.albumCover} draggable="false" />
