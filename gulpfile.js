@@ -20,7 +20,6 @@ gulp.task('react', function() {
   return gulp.src('./public/jsx/*.js', {read: false})
     .pipe(tap(function(file) {
       gutil.log('bundling ' + file.path);
-
       file.contents = browserify(file.path).transform('babelify', {presets: ['es2015', 'react']}).bundle()
     }))
     .pipe(buffer())
@@ -32,6 +31,6 @@ gulp.task('watch', function(){
   gulp.watch('public/less/**/*.less', ['less']);
   gulp.watch(['./public/jsx/*.js'], ['react']);
   // Other watchers
-})
+});
 
-gulp.task('default', ['less', 'react', 'watch']); 
+gulp.task('default', ['watch']);
