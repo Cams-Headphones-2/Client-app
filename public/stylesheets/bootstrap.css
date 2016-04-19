@@ -6755,3 +6755,9 @@ button.close {
   overflow: hidden;
   background-image: url(http://placehold.it/150x150);
 }
+.center {
+  text-align: center;
+}
+.reduce {
+  font-size: 16px;
+}

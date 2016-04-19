@@ -134,8 +134,6 @@ var ArtistForm = React.createClass({
 
     ReactDOM.render(<ArtistForm/>, document.getElementById('example'))
 
-
-
     // <div draggable="true" className="album-div">
     // <img src={this.state.albumCover} draggable="false" />
     // <p>{this.state.album}</p>
