@@ -6725,6 +6725,16 @@ button.close {
     display: none !important;
   }
 }
+.album-div p {
+  text-align: center;
+}
+.home-image {
+  padding: 3%;
+}
+.about {
+  font-size: 24px;
+  text-align: center;
+}
 .album-div {
   height: 248px;
   width: 176px;
@@ -6744,4 +6754,10 @@ button.close {
   display: inline-block;
   overflow: hidden;
   background-image: url(http://placehold.it/150x150);
+}
+.center {
+  text-align: center;
+}
+.reduce {
+  font-size: 16px;
 }

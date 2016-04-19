@@ -94,8 +94,6 @@ var ArtistForm = React.createClass({
               // $('#results-appender').append(albumDiv);
 
 
-
-
             }, error: function(code, message){
             /* Show error message. */
             }});
@@ -133,8 +131,6 @@ var ArtistForm = React.createClass({
     })
 
     ReactDOM.render(<ArtistForm/>, document.getElementById('example'))
-
-
 
     // <div draggable="true" className="album-div">
     // <img src={this.state.albumCover} draggable="false" />
