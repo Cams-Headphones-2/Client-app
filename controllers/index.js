@@ -68,11 +68,5 @@ router.get('/', function(req, res, next) {
 .get('/build', function(req, res, next) {
   res.render('chart-builder', { title: 'Build a chart' });
 });
-// .post('/build', function(req, res, next) {
-//   // Chart.create({  :
-//   // }, function(err, chart) {
-//   //   // dunno yet
-//   // });
-// });
 
 module.exports = router;
