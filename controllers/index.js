@@ -72,6 +72,11 @@ router.get('/', function(req, res, next) {
     res.render('chart-builder', { title: 'Build a chart' });
   // } else res.redirect('/login');
 })
+.get('/account', function(req, res, next) {
+  // if(req.session.loggedIn === true) {
+    res.render('account', { title: 'My charts' });
+  // } else res.redirect('/login');
+})
 .post('/build', function(req, res, next) {
   Chart.create({
     authorId  : req.session.currentUserId,
