@@ -29,6 +29,7 @@ router.get('/', function(req, res, next) {
           email         : req.body.email,
       }, function(err, user) {
         req.session.loggedIn = true;
+        req.session.currentUserId = user._id;
         var currentUser = user.username;
         console.log("You have created an account under the name "+ currentUser +" and been logged in.");
         res.redirect('/');
@@ -49,6 +50,7 @@ router.get('/', function(req, res, next) {
       var comparison = bcrypt.compareSync(enteredPassword, user.passwordHash);
       if (comparison === true) {
         req.session.loggedIn = true;
+        req.session.currentUserId = user._id;
         var currentUser = user.username;
         console.log("Welcome to the site, "+ currentUser);
         res.redirect('/');
@@ -66,21 +68,18 @@ router.get('/', function(req, res, next) {
   res.render('about', { title: 'About'});
 }) // ------------------ GET chart-builder --------------------
 .get('/build', function(req, res, next) {
-  res.render('chart-builder', { title: 'Build a chart' });
+  if(req.session.loggedIn === true) {
+    res.render('chart-builder', { title: 'Build a chart' });
+  } else res.redirect('/login');
 })
-
-// .post('/build', function(req, res, next) {
-//   // Chart.create({  :
-//   // }, function(err, chart) {
-//   //   // dunno yet
-//   // });
-// });
-
-router.get('/account', function(req, res, next) {
-  res.render('account', { title: 'My Charts' });
-});
-router.get('/testdrag', function(req, res, next) {
-  res.render('testdrag', { title: 'testdrag' });
-});
+.post('/build', function(req, res, next) {
+  Chart.create({
+    authorId  : req.session.currentUserId,
+    contents  : 'DOM'
+  }, function(err, chart) {
+    console.log("You have created a chart!");
+    res.redirect('/users');
+  })
+})
 
 module.exports = router;

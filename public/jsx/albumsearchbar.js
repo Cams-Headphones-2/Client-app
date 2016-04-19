@@ -94,8 +94,6 @@ var ArtistForm = React.createClass({
               // $('#results-appender').append(albumDiv);
 
 
-
-
             }, error: function(code, message){
             /* Show error message. */
             }});
