@@ -6725,3 +6725,23 @@ button.close {
     display: none !important;
   }
 }
+.album-div {
+  height: 248px;
+  width: 176px;
+  border: 1px dashed;
+  background-color: lightgreen;
+}
+#draggable {
+  width: 200px;
+  height: 20px;
+  text-align: center;
+  background: white;
+}
+.dropzone {
+  width: 178px;
+  height: 250px;
+  background: blueviolet;
+  display: inline-block;
+  overflow: hidden;
+  background-image: url(http://placehold.it/150x150);
+}

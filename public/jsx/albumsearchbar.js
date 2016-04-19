@@ -64,6 +64,9 @@ var ArtistForm = React.createClass({
               console.log(data.results.albummatches.album[0].name);
               console.log(data.results.albummatches.album[0].image[2]["#text"]);
               console.log(data.results.albummatches.album[0].artist);
+
+              document.getElementById('results-appender').innerHTML = "";
+
               var state = self.state;
               var albumName = data.results.albummatches.album[0].name;
               var albumCover = data.results.albummatches.album[0].image[2]["#text"];
@@ -75,7 +78,7 @@ var ArtistForm = React.createClass({
 
               self.setState(state);
 
-              var albumDiv = $('<div draggable="true" style="height: 248px; width: 176px; border: 1px dashed; background-color: lightgreen"></div>');
+              var albumDiv = $('<div draggable="true" class="album-div" style="height: 248px; width: 176px; border: 1px dashed; background-color: lightgreen"></div>');
               $(albumDiv).append('<img draggable="false" src ="' + albumCover + '">');
               $(albumDiv).append('<p>' + albumName + '</p>');
               $(albumDiv).append('<p>' + albumArtist + '</p>');
@@ -96,9 +99,6 @@ var ArtistForm = React.createClass({
               <input type="submit" value="post"/>
             </form>
             <div id="results-appender"></div>
-            {this.state.whatever.map(function(value, i) {
-              return <SomeComponent prop1={value} />
-            }.bind(this))}
           </div>
 
         )
@@ -106,3 +106,9 @@ var ArtistForm = React.createClass({
     })
 
     ReactDOM.render(<ArtistForm/>, document.getElementById('example'))
+
+    // <div draggable="true" className="album-div">
+    // <img src={this.state.albumCover} draggable="false" />
+    // <p>{this.state.album}</p>
+    // <p>{this.state.artist}</p>
+    // </div>

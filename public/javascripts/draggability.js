@@ -8,7 +8,7 @@ $('#build-btn').click(function() {
   $(newRow).append('<div class="dropzone"></div>');
   $(newRow).append('<div class="dropzone"></div>');
   $(newRow).append('<div class="dropzone"></div>');
-  $('#build-btn').prepend(newRow);
+  $('.zone-container').append(newRow);
 })
 
 /* events fired on the draggable target */
@@ -54,6 +54,10 @@ document.addEventListener("drop", function( event ) {
     // prevent default action (open as link for some elements)
     event.preventDefault();
     // move dragged elem to the selected drop target
+    if ( event.target.id == "delete-box" ) {
+        dragged.remove();
+    }
+
     if ( event.target.className == "dropzone" ) {
         event.target.style.background = "";
         dragged.parentNode.removeChild( dragged );
