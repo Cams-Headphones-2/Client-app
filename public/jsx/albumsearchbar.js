@@ -17,22 +17,11 @@ var ArtistForm = React.createClass({
         return {albumSearch: "", imgURL: "", artist: "", album: ""}
       },
 
-      // validate: function(string) {
-      //   var self = this;
-      //   var state = this.state;
-      //   if(string.length<=10){
-      //     this.setState(state);
-      //   } else {
-      //     console.log('Too long too many characters no no no no.')
-      //   }
-      // },
-
       handlealbumSearchChange: function(event){
         console.log(event.target.value)
         var state = this.state;
         state.albumSearch = event.target.value;
         this.setState(state);
-        // this.validate(this.state.imgURL);
         console.log(this.state)
       },
 
@@ -41,7 +30,6 @@ var ArtistForm = React.createClass({
         var state = this.state;
         state.imgURL = event.target.value;
         this.setState(state);
-        // this.validate(this.state.imgURL);
         console.log(this.state)
       },
       handleartistChange: function(event){
@@ -50,7 +38,6 @@ var ArtistForm = React.createClass({
         state.artist = event.target.value;
         this.setState(state);
 
-        // this.validate(this.state.artist);
         console.log(this.state)
       },
       handlealbumChange: function(event){
@@ -59,7 +46,6 @@ var ArtistForm = React.createClass({
         state.album = event.target.value;
         this.setState(state);
 
-        // this.validate(this.state.album);
         console.log(this.state)
       },
       handleSubmit: function(event){
@@ -102,90 +88,13 @@ var ArtistForm = React.createClass({
               <input type="submit" value="post"/>
             </form>
             <div id="results-appender"></div>
+            {this.props.whatever.map(function(value, i) {
+              return <SomeComponent prop1={value} />
+            }.bind(this))}
           </div>
-
-          // <input type="text" placeholder="Your imgURL" onChange={this.handleimgURLChange} value={this.state.imgURL}/>
-          // <input type="artist" placeholder="artist" onChange={this.handleartistChange} value={this.state.artist}/>
-          // <input type="album" placeholder="album" onChange={this.handlealbumChange} value={this.state.album}/>
-          //
-
 
         )
       }
     })
 
     ReactDOM.render(<ArtistForm/>, document.getElementById('example'))
-    //
-    //
-    //
-    //
-    // var PasswordForm = React.createClass({
-    //   getInitialState: function(){
-    //     return {name: "", password: "", email: ''}
-    //   },
-    //
-    //   validate: function(string) {
-    //     var self = this;
-    //     var state = this.state;
-    //     if(string.length<=10){
-    //       this.setState(state);
-    //     } else {
-    //       console.log('Too long too many characters no no no no.')
-    //     }
-    //   },
-    //
-    //   handleNameChange: function(event){
-    //     console.log(event.target.value)
-    //     var state = this.state;
-    //     state.name = event.target.value;
-    //     // this.setState(state);
-    //     this.validate(this.state.name);
-    //     console.log(this.state)
-    //   },
-    //   handlePasswordChange: function(event){
-    //     console.log(event.target.value)
-    //     var state = this.state;
-    //     state.password = event.target.value.trim();
-    //     this.validate(this.state.password);
-    //     console.log(this.state)
-    //   },
-    //   handleEmailChange: function(event){
-    //     console.log(event.target.value)
-    //     var state = this.state;
-    //     state.email = event.target.value;
-    //     this.validate(this.state.email);
-    //     console.log(this.state)
-    //   },
-    //   handleSubmit: function(event){
-    //     event.preventDefault();
-    //     var self = this;
-    //
-    //     $.ajax({
-    //       url: '/tacos',
-    //       type: 'post',
-    //       data: self.state,
-    //       dataType: 'json',
-    //       success: function(){
-    //         console.log('this form submitted')
-    //       },
-    //       error: function(err){
-    //         console.log(err)
-    //       }
-    //     })
-    //   },
-    //   render: function(){
-    //     return(
-    //       <form className="PasswordForm" onSubmit={this.handleSubmit}>
-    //         <input type="text" placeholder="Your Name" onChange={this.handleNameChange} value={this.state.name}/>
-    //         <input type="password" placeholder="password" onChange={this.handlePasswordChange} value={this.state.password}/>
-    //         <input type="email" placeholder="email" onChange={this.handleEmailChange} value={this.state.email}/>
-    //         <input type="submit" value="post"/>
-    //       </form>
-    //
-    //
-    //
-    //     )
-    //   }
-    // })
-    //
-    // ReactDOM.render(<PasswordForm/>, document.getElementById('example1'))
