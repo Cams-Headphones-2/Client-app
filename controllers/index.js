@@ -74,7 +74,9 @@ router.get('/', function(req, res, next) {
 //   //   // dunno yet
 //   // });
 // });
-
+router.get('/account', function(req, res, next) {
+  res.render('account', { title: 'My Charts' });
+});
 
 router.get('/testdrag', function(req, res, next) {
   res.render('testdrag', { title: 'testdrag' });
