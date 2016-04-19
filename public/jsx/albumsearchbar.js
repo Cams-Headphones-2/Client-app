@@ -14,25 +14,14 @@ var React     = require('react'),
 
 var ArtistForm = React.createClass({
       getInitialState: function(){
-        return {albumSearch: "", imgURL: "", artist: "", album: ""}
+        return {albums: [], imgURL: "", artist: "", album: ""}
       },
-
-      // validate: function(string) {
-      //   var self = this;
-      //   var state = this.state;
-      //   if(string.length<=10){
-      //     this.setState(state);
-      //   } else {
-      //     console.log('Too long too many characters no no no no.')
-      //   }
-      // },
 
       handlealbumSearchChange: function(event){
         console.log(event.target.value)
         var state = this.state;
         state.albumSearch = event.target.value;
         this.setState(state);
-        // this.validate(this.state.imgURL);
         console.log(this.state)
       },
 
@@ -41,7 +30,6 @@ var ArtistForm = React.createClass({
         var state = this.state;
         state.imgURL = event.target.value;
         this.setState(state);
-        // this.validate(this.state.imgURL);
         console.log(this.state)
       },
       handleartistChange: function(event){
@@ -50,7 +38,6 @@ var ArtistForm = React.createClass({
         state.artist = event.target.value;
         this.setState(state);
 
-        // this.validate(this.state.artist);
         console.log(this.state)
       },
       handlealbumChange: function(event){
@@ -59,7 +46,6 @@ var ArtistForm = React.createClass({
         state.album = event.target.value;
         this.setState(state);
 
-        // this.validate(this.state.album);
         console.log(this.state)
       },
       handleSubmit: function(event){
@@ -74,20 +60,38 @@ var ArtistForm = React.createClass({
               cache     : cache
             });
         lastfm.album.search({album: self.state.albumSearch}, {success: function(data){
-              console.log(data)
-              console.log(data.results.albummatches.album[0].name)
-              console.log(data.results.albummatches.album[0].image[2]["#text"])
-              console.log(data.results.albummatches.album[0].artist)
-              var albumName = data.results.albummatches.album[0].name
-              var albumCover = data.results.albummatches.album[0].image[2]["#text"]
-              var albumArtist = data.results.albummatches.album[0].artist
-              var albumDiv = $('<div draggable="true" style="height: 248px; width: 176px; border: 1px dashed; background-color: lightgreen"></div>');
-              $(albumDiv).append('<img draggable="false" src ="' + albumCover + '">');
-              $(albumDiv).append('<p>' + albumName + '</p>');
-              $(albumDiv).append('<p>' + albumArtist + '</p>');
-              $('#results-appender').append(albumDiv);
+              console.log(data);
+              console.log(data.results.albummatches.album[0].name);
+              console.log(data.results.albummatches.album[0].image[2]["#text"]);
+              console.log(data.results.albummatches.album[0].artist);
+
+              document.getElementById('results-zone').innerHTML = "";
+              document.getElementById('search-box').val = "";
 
 
+              var state = self.state;
+              var albumInfo = {
+                albumName: data.results.albummatches.album[0].name,
+                albumCover: data.results.albummatches.album[0].image[2]["#text"],
+                albumArtist: data.results.albummatches.album[0].artist
+              }
+
+              state.albums.push(albumInfo);
+              var albumName = data.results.albummatches.album[0].name;
+              var albumCover = data.results.albummatches.album[0].image[2]["#text"];
+              var albumArtist = data.results.albummatches.album[0].artist;
+
+              state.imgURL = albumCover;
+              state.artist = albumArtist;
+              state.album = albumName;
+
+              self.setState(state);
+
+              // var albumDiv = $('<div draggable="true" class="album-div" style="height: 248px; width: 176px; border: 1px dashed; background-color: lightgreen"></div>');
+              // $(albumDiv).append('<img draggable="false" src ="' + albumCover + '">');
+              // $(albumDiv).append('<p>' + albumName + '</p>');
+              // $(albumDiv).append('<p>' + albumArtist + '</p>');
+              // $('#results-appender').append(albumDiv);
 
 
             }, error: function(code, message){
@@ -98,94 +102,38 @@ var ArtistForm = React.createClass({
         return(
           <div id="results-container">
             <form className="artistForm" onSubmit={this.handleSubmit}>
-              <input type="text" placeholder="Search for an Album" onChange={this.handlealbumSearchChange} value={this.state.albumSearch}/>
+              <input id="search-box" type="text" placeholder="Search for an Album" onChange={this.handlealbumSearchChange} value={this.state.albumSearch}/>
               <input type="submit" value="post"/>
             </form>
-            <div id="results-appender"></div>
+            <div id='results-zone'>
+            {
+              this.state.albums.map(function(album, i){
+                return <AlbumDiv albumCover={album.albumCover} album={album.albumName} artist={album.albumArtist} key={i} />
+              }.bind(this))
+            }
+            </div>
           </div>
-
-          // <input type="text" placeholder="Your imgURL" onChange={this.handleimgURLChange} value={this.state.imgURL}/>
-          // <input type="artist" placeholder="artist" onChange={this.handleartistChange} value={this.state.artist}/>
-          // <input type="album" placeholder="album" onChange={this.handlealbumChange} value={this.state.album}/>
-          //
-
 
         )
       }
     })
 
+    var AlbumDiv = React.createClass({
+      render: function() {
+        return (
+          <div draggable="true" className="album-div">
+            <img src={this.props.albumCover} draggable="false" />
+            <p>{this.props.album}</p>
+            <p>{this.props.artist}</p>
+          </div>
+        )
+      }
+    })
+
     ReactDOM.render(<ArtistForm/>, document.getElementById('example'))
-    //
-    //
-    //
-    //
-    // var PasswordForm = React.createClass({
-    //   getInitialState: function(){
-    //     return {name: "", password: "", email: ''}
-    //   },
-    //
-    //   validate: function(string) {
-    //     var self = this;
-    //     var state = this.state;
-    //     if(string.length<=10){
-    //       this.setState(state);
-    //     } else {
-    //       console.log('Too long too many characters no no no no.')
-    //     }
-    //   },
-    //
-    //   handleNameChange: function(event){
-    //     console.log(event.target.value)
-    //     var state = this.state;
-    //     state.name = event.target.value;
-    //     // this.setState(state);
-    //     this.validate(this.state.name);
-    //     console.log(this.state)
-    //   },
-    //   handlePasswordChange: function(event){
-    //     console.log(event.target.value)
-    //     var state = this.state;
-    //     state.password = event.target.value.trim();
-    //     this.validate(this.state.password);
-    //     console.log(this.state)
-    //   },
-    //   handleEmailChange: function(event){
-    //     console.log(event.target.value)
-    //     var state = this.state;
-    //     state.email = event.target.value;
-    //     this.validate(this.state.email);
-    //     console.log(this.state)
-    //   },
-    //   handleSubmit: function(event){
-    //     event.preventDefault();
-    //     var self = this;
-    //
-    //     $.ajax({
-    //       url: '/tacos',
-    //       type: 'post',
-    //       data: self.state,
-    //       dataType: 'json',
-    //       success: function(){
-    //         console.log('this form submitted')
-    //       },
-    //       error: function(err){
-    //         console.log(err)
-    //       }
-    //     })
-    //   },
-    //   render: function(){
-    //     return(
-    //       <form className="PasswordForm" onSubmit={this.handleSubmit}>
-    //         <input type="text" placeholder="Your Name" onChange={this.handleNameChange} value={this.state.name}/>
-    //         <input type="password" placeholder="password" onChange={this.handlePasswordChange} value={this.state.password}/>
-    //         <input type="email" placeholder="email" onChange={this.handleEmailChange} value={this.state.email}/>
-    //         <input type="submit" value="post"/>
-    //       </form>
-    //
-    //
-    //
-    //     )
-    //   }
-    // })
-    //
-    // ReactDOM.render(<PasswordForm/>, document.getElementById('example1'))
+
+    // <div draggable="true" className="album-div">
+    // <img src={this.state.albumCover} draggable="false" />
+    // <p>{this.state.album}</p>
+    // <p>{this.state.artist}</p>
+    // </div>
