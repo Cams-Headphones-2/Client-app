@@ -6725,3 +6725,6 @@ button.close {
     display: none !important;
   }
 }
+.album-div p {
+  text-align: center;
+}
