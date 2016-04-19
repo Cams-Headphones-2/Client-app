@@ -82,7 +82,7 @@ var ArtistForm = React.createClass({
               var albumCover = data.results.albummatches.album[0].image[2]["#text"]
               var albumArtist = data.results.albummatches.album[0].artist
               var albumDiv = $('<div draggable="true" style="height: 248px; width: 176px; border: 1px dashed; background-color: lightgreen"></div>');
-              $(albumDiv).append('<img src ="' + albumCover + '">');
+              $(albumDiv).append('<img draggable="false" src ="' + albumCover + '">');
               $(albumDiv).append('<p>' + albumName + '</p>');
               $(albumDiv).append('<p>' + albumArtist + '</p>');
               $('#results-appender').append(albumDiv);
