@@ -3,23 +3,6 @@
   <head>
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/bootstrap.css' />
-    <style>
-      #draggable {
-        width: 200px;
-        height: 20px;
-        text-align: center;
-        background: white;
-      }
-
-      .dropzone {
-        width: 178px;
-        height: 250px;
-        background: blueviolet;
-        display: inline-block;
-        overflow: hidden;
-        background-image: url(http://placehold.it/150x150);
-      }
-    </style>
 
   </head>
   <body>
@@ -33,18 +16,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-music"></span> /mu/sic chart generator</a>
+          <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-headphones"></span> /mu/sic chart generator</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
 
-          </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="./">Login <span class="sr-only">(current)</span></a></li>
+            <li><a href="/login/">Login</a></li>
             <li><a href="/register/">Register</a></li>
             <li><a href="/account/">My Account</a></li>
+            <li><a href="/account/"><b>Build Chart</b></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div><!--/.container-fluid -->
@@ -56,9 +36,6 @@
 
 
     <footer></footer>
-    <!-- <div id="example1"></div> -->
-
-
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <script type="text/javascript" src="./javascripts/lastfm.api.cache.js"></script>
