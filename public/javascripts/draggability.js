@@ -4,10 +4,10 @@ var dragged;
 $('#build-btn').click(function() {
   var newRow = $('<div class="row"></div>');
   var dropDiv = $('<div class="dropzone"></div>');
-  $(newRow).append('<div class="dropzone"></div>');
-  $(newRow).append('<div class="dropzone"></div>');
-  $(newRow).append('<div class="dropzone"></div>');
-  $(newRow).append('<div class="dropzone"></div>');
+  $(newRow).append('<div class="dropzone" style="margin-right: 2px"></div>');
+  $(newRow).append('<div class="dropzone" style="margin-left: 2px; margin-right: 2px"></div>');
+  $(newRow).append('<div class="dropzone" style="margin-left: 2px; margin-right: 2px"></div>');
+  $(newRow).append('<div class="dropzone" style="margin-left: 2px"></div>');
   $('.zone-container').append(newRow);
 })
 
