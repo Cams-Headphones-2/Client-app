@@ -11,8 +11,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'MU Builder' });
 }) // ------------------ GET logout -------------------------
 .get('/logout', function(req, res, next) {
-  req.session.loggedIn = null
+  req.session.loggedIn = null;
+  req.session.currentUserId = null;
   console.log('You have been logged out.');
+  res.redirect('/');
 }) // ------------------ GET register ------------------------
 .get('/register', function(req, res, next) {
   res.render('register', { title: 'Register' });
@@ -31,6 +33,11 @@ router.get('/', function(req, res, next) {
         req.session.loggedIn = true;
         req.session.currentUserId = user._id;
         var currentUser = user.username;
+        console.log('-----------------------------');
+        console.log(req.session);
+        console.log('-----------------------------');
+        console.log(req.session.currentUserId);
+        console.log('-----------------------------');
         console.log("You have created an account under the name "+ currentUser +" and been logged in.");
         res.redirect('/');
       });

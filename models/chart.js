@@ -6,4 +6,4 @@ var ChartSchema = new mongoose.Schema({
   contents      : String
 });
 
-module.exports = mongoose.model('Chart', ChartSchema);
+module.exports = mongoose.model('charts', ChartSchema);
