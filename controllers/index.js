@@ -67,16 +67,12 @@ router.get('/', function(req, res, next) {
 }) // ------------------ GET chart-builder --------------------
 .get('/build', function(req, res, next) {
   res.render('chart-builder', { title: 'Build a chart' });
-})
+});
 // .post('/build', function(req, res, next) {
 //   // Chart.create({  :
 //   // }, function(err, chart) {
 //   //   // dunno yet
 //   // });
 // });
-
-router.get('/testdrag', function(req, res, next) {
-  res.render('testdrag', { title: 'testdrag' });
-});
 
 module.exports = router;
