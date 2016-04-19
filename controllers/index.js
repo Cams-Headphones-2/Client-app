@@ -63,9 +63,6 @@ router.get('/', function(req, res, next) {
         res.redirect('/register');
       }
   });
-}) // ------------------ GET about ---------------------------
-.get('/about', function(req, res, next) {
-  res.render('about', { title: 'About'});
 }) // ------------------ GET chart-builder --------------------
 .get('/build', function(req, res, next) {
   if(req.session.loggedIn === true) {
@@ -74,12 +71,13 @@ router.get('/', function(req, res, next) {
 })
 .post('/build', function(req, res, next) {
   Chart.create({
-    authorId  : req.session.currentUserId,
-    contents  : 'DOM'
+    nameOfChart : "NAME OF CHART",
+    authorId    : req.session.currentUserId,
+    contents    : 'DOM'
   }, function(err, chart) {
     console.log("You have created a chart!");
     res.redirect('/users');
   })
-})
+});
 
 module.exports = router;

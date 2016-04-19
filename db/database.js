@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var connectionString = process.env.DB;
+console.log(process.env.DB);
 
 mongoose.connect(connectionString);
 
