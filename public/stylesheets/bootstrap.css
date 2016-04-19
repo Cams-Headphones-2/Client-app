@@ -6728,3 +6728,10 @@ button.close {
 .album-div p {
   text-align: center;
 }
+.home-image {
+  padding: 3%;
+}
+.about {
+  font-size: 24px;
+  text-align: center;
+}
