@@ -68,9 +68,9 @@ router.get('/', function(req, res, next) {
   res.render('about', { title: 'About'});
 }) // ------------------ GET chart-builder --------------------
 .get('/build', function(req, res, next) {
-  if(req.session.loggedIn === true) {
+  // if(req.session.loggedIn === true) {
     res.render('chart-builder', { title: 'Build a chart' });
-  } else res.redirect('/login');
+  // } else res.redirect('/login');
 })
 .post('/build', function(req, res, next) {
   Chart.create({
