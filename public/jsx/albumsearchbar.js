@@ -65,7 +65,7 @@ var ArtistForm = React.createClass({
               console.log(data.results.albummatches.album[0].image[2]["#text"]);
               console.log(data.results.albummatches.album[0].artist);
 
-              // document.getElementById('results-appender').innerHTML = "";
+              document.getElementById('results-zone').innerHTML = "";
 
               var state = self.state;
               var albumInfo = {
@@ -105,12 +105,13 @@ var ArtistForm = React.createClass({
               <input type="text" placeholder="Search for an Album" onChange={this.handlealbumSearchChange} value={this.state.albumSearch}/>
               <input type="submit" value="post"/>
             </form>
+            <div id='results-zone'>
             {
               this.state.albums.map(function(album, i){
                 return <AlbumDiv albumCover={album.albumCover} album={album.albumName} artist={album.albumArtist} key={i} />
               }.bind(this))
             }
-
+            </div>
           </div>
 
         )
