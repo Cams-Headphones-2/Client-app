@@ -109,7 +109,7 @@ router.get('/', function(req, res, next) {
       res.send(chart);
     } else console.log('chart exists already');
   })
-});
+})
 
 .get('/chartviewer', function(req, res, next) {
 

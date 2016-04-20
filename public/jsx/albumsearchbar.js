@@ -103,7 +103,7 @@ var ArtistForm = React.createClass({
           <div id="results-container">
             <form className="artistForm" onSubmit={this.handleSubmit}>
               <input id="search-box" type="text" placeholder="Search for an Album" onChange={this.handlealbumSearchChange} value={this.state.albumSearch}/>
-              <input type="submit" value="post"/>
+              <button className="btn btn-primary" type="submit" value="post">Search</button>
             </form>
             <div id='results-zone'>
             {
