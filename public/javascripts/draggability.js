@@ -8,7 +8,8 @@ $('#build-btn').click(function() {
   $(newRow).append('<div class="dropzone" style="margin-left: 2px; margin-right: 2px"></div>');
   $(newRow).append('<div class="dropzone" style="margin-left: 2px; margin-right: 2px"></div>');
   $(newRow).append('<div class="dropzone" style="margin-left: 2px"></div>');
-  $('.zone-container').append(newRow);
+  $('#zone-container').append(newRow);
+  console.log('we built this city')
 })
 
 /* events fired on the draggable target */
