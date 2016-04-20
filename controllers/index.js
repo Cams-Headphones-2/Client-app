@@ -84,7 +84,7 @@ router.get('/', function(req, res, next) {
 })
 .post('/build', function(req, res, next) {
   Chart.create({
-    nameOfChart : "NAME OF CHART",
+    nameOfChart : req.body.nameOfChart,
     authorId    : "req.session.currentUserId",
     contents    : req.body.chart
   }, function(err, chart) {
