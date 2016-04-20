@@ -122,9 +122,12 @@ var ArtistForm = React.createClass({
       render: function() {
         return (
           <div draggable="true" className="album-div">
-            <img src={this.props.albumCover} draggable="false" />
-            <p>{this.props.album}</p>
-            <p>{this.props.artist}</p>
+            <img className="album-cover" src={this.props.albumCover} draggable="false" />
+            <input type="hidden" name="albumCover" value={this.props.albumCover} />
+            <p className="album-name">{this.props.album}</p>
+            <input type="hidden" name="album" value={this.props.album} />
+            <p className="artist-name">{this.props.artist}</p>
+            <input type="hidden" name="artist" value={this.props.artist} />
           </div>
         )
       }
