@@ -87,6 +87,8 @@ var ArtistForm = React.createClass({
 
               self.setState(state);
 
+              console.log(self.state.albums);
+
               // var albumDiv = $('<div draggable="true" class="album-div" style="height: 248px; width: 176px; border: 1px dashed; background-color: lightgreen"></div>');
               // $(albumDiv).append('<img draggable="false" src ="' + albumCover + '">');
               // $(albumDiv).append('<p>' + albumName + '</p>');
@@ -108,7 +110,7 @@ var ArtistForm = React.createClass({
             <div id='results-zone'>
             {
               this.state.albums.map(function(album, i){
-                return <AlbumDiv albumCover={album.albumCover} album={album.albumName} artist={album.albumArtist} key={i} />
+                return <AlbumDiv albumCover={album.albumCover} album={album.albumName} artist={album.albumArtist} location={1} key={i} />
               }.bind(this))
             }
             </div>
@@ -121,13 +123,17 @@ var ArtistForm = React.createClass({
     var AlbumDiv = React.createClass({
       render: function() {
         return (
-          <div draggable="true" className="album-div">
+          <div draggable="true" data-location="3" className="album-div">
             <img className="album-cover" src={this.props.albumCover} draggable="false" />
             <input type="hidden" name="albumCover" value={this.props.albumCover} />
             <p className="album-name">{this.props.album}</p>
             <input type="hidden" name="album" value={this.props.album} />
             <p className="artist-name">{this.props.artist}</p>
             <input type="hidden" name="artist" value={this.props.artist} />
+            <input type="hidden" name="key" value={this.props.key} />
+            <input type="hidden" name="location" value={this.props.location} />
+
+
           </div>
         )
       }
