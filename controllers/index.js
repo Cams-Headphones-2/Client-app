@@ -100,7 +100,7 @@ router.get('/', function(req, res, next) {
   // } else res.redirect('/login');
 })
 .get('/getChart', function(req, res, next) {
-  Chart.findOne({ _id: 5717a60158d2867e1c5d6f10}, function(err, chart) {
+  Chart.findOne({ _id: '5717a60158d2867e1c5d6f10'}, function(err, chart) {
     if (chart) {
       res.send(chart);
     } else console.log('chart exists already');
