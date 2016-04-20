@@ -7,7 +7,7 @@ var React     = require('react'),
 
 var TitleEdit = React.createClass({
       getInitialState: function(){
-        return {title: "Chart Name", genre: "Genre/Style Here (optional)"}
+        return {title: "Chart Name (required)", genre: "Genre/Style (optional)"}
       },
 
       handleTitleChange: function(event){
