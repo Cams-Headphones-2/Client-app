@@ -16,18 +16,22 @@ $('#save-btn').click(function(event){
         })
 })
 
-// function(event){
-//         event.preventDefault();
-//         var contents = document.getElementById('zone-container');
-//         $.ajax({
-//           url: '/build',
-//           type: 'post',
-//           data: contents,
-//           dataType: 'json',
-//           success: function(){
-//             console.log('chart sent')
-//           },
-//           error: function(err){
-//             console.log(err)
-//           }
-//         })
+$('#load-btn').click(function(event){
+        event.preventDefault();
+        console.log(contents)
+        $.ajax({
+          url: '/getchart',
+          type: 'get',
+          // data: contents,
+          dataType: 'json',
+          success: function(data){
+            console.log('chart sent')
+            var contents = data.contents
+            document.getElementById('zone-container').append(contents);
+
+          },
+          error: function(err){
+            console.log(err)
+          }
+        })
+})
