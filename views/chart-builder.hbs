@@ -1,9 +1,9 @@
 <div class="container" id="chart-area">
 <div class="row">
     <!-- your first col -->
-    <div class="col-sm-8 col1">
+    <div class="col-sm-8 col1 center">
       <div id="zone-container">
-            <center><h1>NAME YOUR CHART HERE</h1></center>
+            <h1>NAME YOUR CHART HERE</h1>
             <hr/>
         <!-- your row inside the col -->
         <div class="row">
@@ -21,21 +21,28 @@
             <div class="dropzone"></div>
         </div>
         <br>
-      </div>
-      <center><button type="button" id="build-btn" class="btn btn-warning">Load additional rows</button></center>
+      </div><!--close zone container -->
+
+      <button type="button" id="build-btn" class="btn btn-warning btn-lg">Load New Rows</button>
+
+      <button id="save-btn" type="button" class="btn btn-success btn-lg">Save My Chart</button>
     </div>
 
-    <div class="col-sm-4 col2">
-        <div class="col-sm-12"><center>Search for any album here. Then click-drag the element to your chart on the left. For best results, type in both the album name and the artist!</center></div>
+    <div class="col-sm-4 col2 center">
+        <div class="col-sm-12"><p class="reduce">
+          <div class="jumbotron pad">
+            <h2>Album Search</h2>
+            Search for an album, then click-drag the result to the chart on the left. For best results, type in both <b>artist name</b> and <b>album name</b>.</p>
+            <center><div id="example" style="height: 400px; width: 178px"></div></center>
+          </div>
+        </div>
         <br/>
-        <center><div id="example" style="height: 400px; width: 178px"></div></center>
 
-          <!-- Indicates a successful or positive action -->
-        <center><button id="save-btn" type="button" class="btn btn-success btn-lg">Save My Chart</button></center>
-        <center><button type="button" id="delete-box" class="dropzone">Delete Album</button></center>
+
+        <button type="button" id="delete-box" class="dropzone"><span class="glyphicon glyphicon-trash"></span>Delete Album</button>
 
     </div>
-</div>
+  </div>
 </div>
 
 
