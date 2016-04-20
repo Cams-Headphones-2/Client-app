@@ -1,6 +1,8 @@
 # dotenv
 .env
 
+.gitignore
+
 # Logs
 logs
 *.log
@@ -37,3 +39,6 @@ node_modules
 
 # components directory
 public/javascripts/components
+
+public/javascript/components/*
+public/javascript/stylesheets/*
