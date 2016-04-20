@@ -71,7 +71,7 @@ router.get('/', function(req, res, next) {
         console.log(req.session.currentUserId);
         console.log('-----------------------------');
         console.log(req.session.currentUser);
-        res.redirect('/');
+        res.redirect('/build');
       } else {
           console.log("The username or password you entered was incorrect.");
           res.redirect('/login');
