@@ -39,6 +39,5 @@ node_modules
 
 
 # components directory
-
 public/javascripts/components/*
 public/javascripts/stylesheets/*
