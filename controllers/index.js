@@ -30,7 +30,7 @@ router.get('/', function(req, res, next) {
     } else {
         User.create({
           username      : req.body.username,
-          passwordHash  : bcrypt.hashSync(req.body.passwordHash, dbSalt),
+          passwordHash  : bcrypt.hashSync(req.body.passnwordHash, dbSalt),
           email         : req.body.email,
       }, function(err, user) {
         req.session.loggedIn = true;
@@ -51,7 +51,7 @@ router.get('/', function(req, res, next) {
 .get('/login', function(req, res, next) {
   if (req.session.loggedIn === true) {
     console.log("You're already logged in!");
-    res.redirect('/');
+    res.redirect('/build');
   } else res.render('login', { title: 'Login'});
 }) // ------------------ POST login --------------------------
 .post('/login', function(req, res, next) {
@@ -108,15 +108,6 @@ router.get('/', function(req, res, next) {
 
   // } else res.redirect('/login');
 })
-
-.get('/getChart', function(req, res, next) {
-  Chart.findOne({ _id: "5717a60158d2867e1c5d6f10"}, function(err, chart) {
-    if (chart) {
-      res.send(chart);
-    } else console.log('chart exists already');
-  })
-})
-
 .get('/chartviewer', function(req, res, next) {
     res.render('chart-viewer', { title: 'View a Chart' });
 })
