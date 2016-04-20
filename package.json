@@ -24,6 +24,8 @@
     "mongoose": "^4.4.12",
     "morgan": "~1.6.1",
     "react": "^15.0.1",
+    "react-dnd": "^2.1.4",
+    "react-dnd-html5-backend": "^2.1.2",
     "react-dom": "^15.0.1",
     "serve-favicon": "~2.3.0"
   },
