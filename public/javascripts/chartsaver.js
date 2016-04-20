@@ -20,16 +20,17 @@ $('#save-btn').click(function(event){
 
 $('#load-btn').click(function(event){
         event.preventDefault();
-        console.log(contents)
+        // console.log(contents)
         $.ajax({
           url: '/getchart',
           type: 'get',
           // data: contents,
           dataType: 'json',
           success: function(data){
-            console.log('chart sent')
-            var contents = data.contents
-            document.getElementById('zone-container').append(contents);
+            console.log(data)
+            contents = data.contents;
+            // var contents = data.contents
+            $('#zone-container').append(contents);
 
           },
           error: function(err){

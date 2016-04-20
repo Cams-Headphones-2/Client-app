@@ -18,7 +18,7 @@
 @brand-success:         #5cb85c;
 @brand-info:            #5bc0de;
 @brand-warning:         #f0ad4e;
-@brand-danger:          #d9534f;
+@brand-danger:          #f0ad4e;
 @brand-secondary:       #c0ffee;
 
 
@@ -27,9 +27,9 @@
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-@body-bg:               #fff;
+@body-bg:               #2B2B2B; //#fff
 //** Global text color on `<body>`.
-@text-color:            @gray-dark;
+@text-color:            @gray-lighter; //@gray-dark
 
 //** Global textual link color.
 @link-color:            @brand-primary;
@@ -485,10 +485,17 @@
 //
 //##
 
+<<<<<<< HEAD
 @jumbotron-padding:              15px;
 @jumbotron-color:                inherit;
-@jumbotron-bg:                   @gray-lighter; //gray-lighter
+@jumbotron-bg:                   @gray-lighter; //
 @jumbotron-heading-color:        inherit;
+=======
+@jumbotron-padding:              5px;
+@jumbotron-color:                @brand-danger;
+@jumbotron-bg:                   @gray-lighter;
+@jumbotron-heading-color:        @brand-danger;
+>>>>>>> 693c43cb44cbd167a6fb69dd20ebb51ddde4228a
 @jumbotron-font-size:            ceil((@font-size-base * 1.5));
 @jumbotron-heading-font-size:    ceil((@font-size-base * 4.5));
 

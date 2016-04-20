@@ -94,17 +94,26 @@ router.get('/', function(req, res, next) {
   })
 })
 
-.get('/chartviewer', function(req, res, next) {
+.get('/chartjson', function(req, res, next) {
   // if(req.session.loggedIn === true) {
+    Chart.find(function(err, chart){
+      res.json(chart)
+    })
     // res.render('chart-viewer', { title: 'View a Chart' });
+
   // } else res.redirect('/login');
 })
-.get('/getChart', function(req, res, next) {
-  Chart.findOne({ _id: '5717a60158d2867e1c5d6f10'}, function(err, chart) {
-    if (chart) {
-      res.send(chart);
-    } else console.log('chart exists already');
-  })
-});
+.get('/chartviewer', function(req, res, next) {
+    res.render('chart-viewer', { title: 'View a Chart' });
+})
+.get('/getchart', function(req, res, next) {
+
+    Chart.findOne({ _id: "5717a60158d2867e1c5d6f10" }, function(err, chart) {
+      if (chart) {
+        console.log(chart);
+        res.send(chart);
+      } else console.log("no such chart exists");
+    });
+})
 
 module.exports = router;
