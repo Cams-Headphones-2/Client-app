@@ -60,10 +60,10 @@ var ArtistForm = React.createClass({
               cache     : cache
             });
         lastfm.album.search({album: self.state.albumSearch}, {success: function(data){
-              console.log(data);
-              console.log(data.results.albummatches.album[0].name);
-              console.log(data.results.albummatches.album[0].image[2]["#text"]);
-              console.log(data.results.albummatches.album[0].artist);
+              // console.log(data);
+              // console.log(data.results.albummatches.album[0].name);
+              // console.log(data.results.albummatches.album[0].image[2]["#text"]);
+              // console.log(data.results.albummatches.album[0].artist);
 
               document.getElementById('results-zone').innerHTML = "";
               document.getElementById('search-box').val = "g";
@@ -103,7 +103,7 @@ var ArtistForm = React.createClass({
           <div id="results-container">
             <form className="artistForm" onSubmit={this.handleSubmit}>
               <input id="search-box" type="text" placeholder="Search for an Album" onChange={this.handlealbumSearchChange} value={this.state.albumSearch}/>
-              <input type="submit" value="post"/>
+              <button className="btn btn-primary" type="submit" value="post">Search</button>
             </form>
             <div id='results-zone'>
             {
@@ -122,9 +122,12 @@ var ArtistForm = React.createClass({
       render: function() {
         return (
           <div draggable="true" className="album-div">
-            <img src={this.props.albumCover} draggable="false" />
-            <p>{this.props.album}</p>
-            <p>{this.props.artist}</p>
+            <img className="album-cover" src={this.props.albumCover} draggable="false" />
+            <input type="hidden" name="albumCover" value={this.props.albumCover} />
+            <p className="album-name">{this.props.album}</p>
+            <input type="hidden" name="album" value={this.props.album} />
+            <p className="artist-name">{this.props.artist}</p>
+            <input type="hidden" name="artist" value={this.props.artist} />
           </div>
         )
       }

@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var ChartSchema = new mongoose.Schema({
   nameOfChart   : String,
-  authorId      : Number,
+  authorId      : String,
   contents      : String
 });
 
