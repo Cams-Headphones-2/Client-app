@@ -37,7 +37,6 @@ var ArtistForm = React.createClass({
         var state = this.state;
         state.artist = event.target.value;
         this.setState(state);
-
         console.log(this.state)
       },
       handlealbumChange: function(event){
@@ -45,14 +44,13 @@ var ArtistForm = React.createClass({
         var state = this.state;
         state.album = event.target.value;
         this.setState(state);
-
         console.log(this.state)
       },
       handleSubmit: function(event){
         event.preventDefault();
         var self = this;
         var cache = new LastFMCache();
-        console.log(this)
+        console.log(this);
 
         var lastfm = new LastFM({
               apiKey    : 'f21088bf9097b49ad4e7f487abab981e',
@@ -60,10 +58,10 @@ var ArtistForm = React.createClass({
               cache     : cache
             });
         lastfm.album.search({album: self.state.albumSearch}, {success: function(data){
-              // console.log(data);
-              // console.log(data.results.albummatches.album[0].name);
-              // console.log(data.results.albummatches.album[0].image[2]["#text"]);
-              // console.log(data.results.albummatches.album[0].artist);
+              console.log(data);
+              console.log(data.results.albummatches.album[0].name);
+              console.log(data.results.albummatches.album[0].image[2]["#text"]);
+              console.log(data.results.albummatches.album[0].artist);
 
               document.getElementById('results-zone').innerHTML = "";
               document.getElementById('search-box').val = "g";
