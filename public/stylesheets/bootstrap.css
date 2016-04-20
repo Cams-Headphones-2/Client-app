@@ -6756,11 +6756,9 @@ p {
 .dropzone {
   width: 178px;
   height: 250px;
-  background: #333;
   display: inline-block;
   overflow: hidden;
-  background-color: black;
-  border: 1px dashed white;
+  background-image: url("../images/placeholder.png");
 }
 .center {
   text-align: center;
@@ -6781,6 +6779,10 @@ p {
 }
 #delete-box {
   width: 300px;
+  height: 100px;
+}
+.trash {
+  background-image: url("../images/trash.png");
 }
 .logo {
   color: #cc0033;
