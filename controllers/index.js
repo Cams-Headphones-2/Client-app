@@ -11,8 +11,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'MU Builder' });
 }) // ------------------ GET logout -------------------------
 .get('/logout', function(req, res, next) {
-  req.session.loggedIn = null
+  req.session.loggedIn = null;
+  req.session.currentUserId = null;
   console.log('You have been logged out.');
+  res.redirect('/');
 }) // ------------------ GET register ------------------------
 .get('/register', function(req, res, next) {
   res.render('register', { title: 'Register' });
@@ -31,6 +33,11 @@ router.get('/', function(req, res, next) {
         req.session.loggedIn = true;
         req.session.currentUserId = user._id;
         var currentUser = user.username;
+        console.log('-----------------------------');
+        console.log(req.session);
+        console.log('-----------------------------');
+        console.log(req.session.currentUserId);
+        console.log('-----------------------------');
         console.log("You have created an account under the name "+ currentUser +" and been logged in.");
         res.redirect('/');
       });
@@ -63,23 +70,26 @@ router.get('/', function(req, res, next) {
         res.redirect('/register');
       }
   });
-}) // ------------------ GET about ---------------------------
-.get('/about', function(req, res, next) {
-  res.render('about', { title: 'About'});
 }) // ------------------ GET chart-builder --------------------
 .get('/build', function(req, res, next) {
   // if(req.session.loggedIn === true) {
     res.render('chart-builder', { title: 'Build a chart' });
   // } else res.redirect('/login');
 })
+.get('/account', function(req, res, next) {
+  // if(req.session.loggedIn === true) {
+    res.render('account', { title: 'My charts' });
+  // } else res.redirect('/login');
+})
 .post('/build', function(req, res, next) {
   Chart.create({
-    authorId  : req.session.currentUserId,
-    contents  : 'DOM'
+    nameOfChart : "NAME OF CHART",
+    authorId    : req.session.currentUserId,
+    contents    : 'DOM'
   }, function(err, chart) {
     console.log("You have created a chart!");
     res.redirect('/users');
   })
-})
+});
 
 module.exports = router;
