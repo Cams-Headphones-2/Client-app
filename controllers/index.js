@@ -82,13 +82,15 @@ router.get('/', function(req, res, next) {
   // } else res.redirect('/login');
 })
 .post('/build', function(req, res, next) {
+  var contents = req.body;
+  console.log(req.body);
   Chart.create({
     nameOfChart : "NAME OF CHART",
     authorId    : req.session.currentUserId,
-    contents    : 'DOM'
+    contents    : "DOM"
   }, function(err, chart) {
     console.log("You have created a chart!");
-    res.redirect('/users');
+    res.redirect('/account');
   })
 });
 

@@ -14,7 +14,7 @@ $('#save-btn').click(function(event){
             console.log(err)
           }
         })
-})
+});
 
 // function(event){
 //         event.preventDefault();
