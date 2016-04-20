@@ -1,7 +1,9 @@
 $('#save-btn').click(function(event){
         event.preventDefault();
-        var contents = document.getElementById('zone-container').innerHTML;
-        console.log(contents)
+        var contents = {
+          chart: document.getElementById('zone-container').innerHTML
+        }
+        console.log(typeof contents)
         $.ajax({
           url: '/build',
           type: 'post',

@@ -3,7 +3,8 @@ var User          = require('../models/user'),
     express       = require('express'),
     router        = express.Router(),
     bcrypt        = require('bcrypt'),
-    dbSalt        = bcrypt.genSaltSync(10);
+    dbSalt        = bcrypt.genSaltSync(10),
+    db            = process.env.DB;
 
     // ------------------ GET home -------------------------
 router.get('/', function(req, res, next) {
@@ -84,13 +85,17 @@ router.get('/', function(req, res, next) {
 .post('/build', function(req, res, next) {
   var contents = req.body
   console.log(req.body)
+  console.log(req.body.chart)
+  console.log(typeof req.body.chart)
+
   Chart.create({
     nameOfChart : "NAME OF CHART",
-    authorId    : req.session.currentUserId,
-    contents    : contents
+    authorId    : "req.session.currentUserId",
+    contents    : req.body.chart
   }, function(err, chart) {
     console.log("You have created a chart!");
-    res.redirect('/users');
+    // console.log(db.chart.find({}));
+    res.redirect('/account');
   })
 })
 
