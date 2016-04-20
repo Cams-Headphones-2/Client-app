@@ -3,8 +3,7 @@ var User          = require('../models/user'),
     express       = require('express'),
     router        = express.Router(),
     bcrypt        = require('bcrypt'),
-    dbSalt        = bcrypt.genSaltSync(10),
-    db            = process.env.DB;
+    dbSalt        = bcrypt.genSaltSync(10);
 
     // ------------------ GET home -------------------------
 router.get('/', function(req, res, next) {
@@ -18,7 +17,10 @@ router.get('/', function(req, res, next) {
   res.redirect('/');
 }) // ------------------ GET register ------------------------
 .get('/register', function(req, res, next) {
-  res.render('register', { title: 'Register' });
+  if (req.session.loggedIn === true) {
+    res.redirect('/');
+  } else res.render('register', { title: 'Register' });
+
 }) // ------------------ POST register -----------------------
 .post('/register', function(req, res, next) {
   User.findOne({ username: req.body.username }, function(err, user) {
@@ -33,6 +35,7 @@ router.get('/', function(req, res, next) {
       }, function(err, user) {
         req.session.loggedIn = true;
         req.session.currentUserId = user._id;
+        req.session.currentUser = user.username;
         var currentUser = user.username;
         console.log('-----------------------------');
         console.log(req.session);
@@ -59,8 +62,15 @@ router.get('/', function(req, res, next) {
       if (comparison === true) {
         req.session.loggedIn = true;
         req.session.currentUserId = user._id;
+        req.session.currentUser = user.username;
         var currentUser = user.username;
         console.log("Welcome to the site, "+ currentUser);
+        console.log('-----------------------------');
+        console.log(req.session);
+        console.log('-----------------------------');
+        console.log(req.session.currentUserId);
+        console.log('-----------------------------');
+        console.log(req.session.currentUser);
         res.redirect('/');
       } else {
           console.log("The username or password you entered was incorrect.");
@@ -73,19 +83,14 @@ router.get('/', function(req, res, next) {
   });
 }) // ------------------ GET chart-builder --------------------
 .get('/build', function(req, res, next) {
-  // if(req.session.loggedIn === true) {
+  if(req.session.loggedIn === true) {
     res.render('chart-builder', { title: 'Build a chart' });
-  // } else res.redirect('/login');
-})
-.get('/account', function(req, res, next) {
-  // if(req.session.loggedIn === true) {
-    res.render('account', { title: 'My charts' });
-  // } else res.redirect('/login');
+  } else res.redirect('/login');
 })
 .post('/build', function(req, res, next) {
   Chart.create({
     nameOfChart : req.body.nameOfChart,
-    authorId    : "req.session.currentUserId",
+    authorId    : req.session.currentUserId,
     contents    : req.body.chart
   }, function(err, chart) {
     console.log("You have created a chart!");
@@ -103,6 +108,7 @@ router.get('/', function(req, res, next) {
 
   // } else res.redirect('/login');
 })
+
 .get('/getChart', function(req, res, next) {
   Chart.findOne({ _id: "5717a60158d2867e1c5d6f10"}, function(err, chart) {
     if (chart) {
@@ -112,13 +118,10 @@ router.get('/', function(req, res, next) {
 })
 
 .get('/chartviewer', function(req, res, next) {
-
     res.render('chart-viewer', { title: 'View a Chart' });
-
 })
-
+  // ---------------- TESTING ------------------
 .get('/getchart', function(req, res, next) {
-
     Chart.findOne({ _id: "5717a60158d2867e1c5d6f10" }, function(err, chart) {
       if (chart) {
         console.log(chart);

@@ -60,10 +60,10 @@ var ArtistForm = React.createClass({
               cache     : cache
             });
         lastfm.album.search({album: self.state.albumSearch}, {success: function(data){
-              console.log(data);
-              console.log(data.results.albummatches.album[0].name);
-              console.log(data.results.albummatches.album[0].image[2]["#text"]);
-              console.log(data.results.albummatches.album[0].artist);
+              // console.log(data);
+              // console.log(data.results.albummatches.album[0].name);
+              // console.log(data.results.albummatches.album[0].image[2]["#text"]);
+              // console.log(data.results.albummatches.album[0].artist);
 
               document.getElementById('results-zone').innerHTML = "";
               document.getElementById('search-box').val = "g";
