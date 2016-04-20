@@ -51,7 +51,7 @@ router.get('/', function(req, res, next) {
 .get('/login', function(req, res, next) {
   if (req.session.loggedIn === true) {
     console.log("You're already logged in!");
-    res.redirect('/build');
+    res.redirect('/');
   } else res.render('login', { title: 'Login'});
 }) // ------------------ POST login --------------------------
 .post('/login', function(req, res, next) {
@@ -71,7 +71,7 @@ router.get('/', function(req, res, next) {
         console.log(req.session.currentUserId);
         console.log('-----------------------------');
         console.log(req.session.currentUser);
-        res.redirect('/');
+        res.redirect('/build');
       } else {
           console.log("The username or password you entered was incorrect.");
           res.redirect('/login');
