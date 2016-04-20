@@ -16,7 +16,7 @@ $('#save-btn').click(function(event){
             console.log(err)
           }
         })
-})
+});
 
 $('#load-btn').click(function(event){
         event.preventDefault();
