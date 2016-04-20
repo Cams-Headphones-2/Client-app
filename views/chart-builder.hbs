@@ -3,10 +3,10 @@
     <!-- your first col -->
     <div class="col-sm-8 col1 center">
       <div id="zone-container">
-            <h1 class="chartname">Chart Name</h1>
+            <h1 class="chartname" id="title">Chart Name</h1>
         <!-- your row inside the col -->
         <div class="row">
-          <h4 class="genre">Genre / Style Here (Optional)</h4>
+          <h4 class="genre" id="genre">Genre / Style (optional)</h4>
             <div class="dropzone"></div>
             <div class="dropzone"></div>
             <div class="dropzone"></div>
@@ -30,42 +30,24 @@
     <div class="col-sm-4 col2 center">
         <div class="col-sm-12">
           <div class="jumbotron">
+            <h2 class="darker">Title Editor</h2>
+            <center><div id="title-editor" style="height: 50px; width: 178px; color: black"></div></center>
+          </div>
+        </div>
+
+    </div>
+    <div class="col-sm-4 col2 center">
+        <div class="col-sm-12">
+          <div class="jumbotron bottompad">
             <h2 class="darker">Album Search</h2>
             <p class="about">Search for an album, then click-drag the result to the chart on the left. For best results, type in both <b>artist name</b> and <b>album name</b>.</p>
-            <center><div id="example" style="height: 400px; width: 178px"></div></center>
+            <center><div id="title-editor" style="height: 50px; width: 178px; color: black"></div></center>
+            <center><div id="example" style="height: 400px; width: 178px; color: black"></div></center>
           </div>
         </div>
         <br/>
-        <button type="button" id="delete-box" class="dropzone"><span class="glyphicon glyphicon-trash"></span> <span class="glyphicon glyphicon-trash"></span> <span class="glyphicon glyphicon-trash"></span><h4 class="genre">Drag & Drop <br>to Delete Album</h4></button>
+        <button type="button" id="delete-box" class="dropzone trash"></button>
 
     </div>
   </div>
 </div>
-
-
-<!--
-<div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <center><h1>NAME YOUR CHART HERE</h1></center>
-      <hr />
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-2"><img src="http://placehold.it/150x150"></div>
-    <div class="col-md-2"><img src="http://placehold.it/150x150"></div>
-    <div class="col-md-2"><img src="http://placehold.it/150x150"></div>
-
-  </div><!close row-->
-<!-- </div><!close container-->
-
-  <!-- <div class="container">
-    <div class="row">
-
-      <div class="col-md-4"><center>Search for any album here. Then click-drag the element to your chart on the left. For best results, type in both the album name and the artist!</center>
-        <hr />
-      </div>
-    </div><!close row-->
-  <!-- </div><!close container-->

@@ -89,7 +89,7 @@ router.get('/', function(req, res, next) {
 })
 .post('/build', function(req, res, next) {
   Chart.create({
-    nameOfChart : "NAME OF CHART",
+    nameOfChart : req.body.nameOfChart,
     authorId    : req.session.currentUserId,
     contents    : req.body.chart
   }, function(err, chart) {
@@ -108,6 +108,15 @@ router.get('/', function(req, res, next) {
 
   // } else res.redirect('/login');
 })
+
+.get('/getChart', function(req, res, next) {
+  Chart.findOne({ _id: "5717a60158d2867e1c5d6f10"}, function(err, chart) {
+    if (chart) {
+      res.send(chart);
+    } else console.log('chart exists already');
+  })
+})
+
 .get('/chartviewer', function(req, res, next) {
     res.render('chart-viewer', { title: 'View a Chart' });
 })

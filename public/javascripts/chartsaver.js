@@ -1,7 +1,8 @@
 $('#save-btn').click(function(event){
         event.preventDefault();
         var contents = {
-          chart: document.getElementById('zone-container').innerHTML
+          chart: document.getElementById('zone-container').innerHTML,
+          nameOfChart: document.getElementById('title').innerHTML
         }
         console.log(typeof contents)
         $.ajax({
