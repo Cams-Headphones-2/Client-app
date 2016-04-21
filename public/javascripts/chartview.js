@@ -18,15 +18,15 @@ window.onload = function(event){
             console.log(err)
           }
         })
-}
+};
 
-$('#edit-btn').click(function(event){
+document.getElementById('edit-btn').click(function(event){
         event.preventDefault();
         console.log('we tried to save it, we really did');
         var contents = {
           chart: document.getElementById('zone-container').innerHTML,
           nameOfChart: document.getElementById('title').innerHTML
-        }
+        };
         console.log(typeof contents)
         $.ajax({
           url: '/charts/edit',
