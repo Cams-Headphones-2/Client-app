@@ -26,7 +26,6 @@ $('#edit-btn').click(function(){
           chart: document.getElementById('zone-container').innerHTML,
           nameOfChart: document.getElementById('title').innerHTML
         };
-        console.log(typeof contents)
         $.ajax({
           url: '/charts/edit',
           type: 'post',

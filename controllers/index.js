@@ -8,7 +8,7 @@ var User          = require('../models/user'),
     // ------------------ GET home -------------------------
 router.get('/', function(req, res, next) {
   // check if person is logged in?
-  res.render('index', { title: 'MU Builder' });
+  res.render('index', { title: '/Mu/sic Chart Generator | Create Your Own Music Flowcharts' });
 }) // ------------------ GET logout -------------------------
 .get('/logout', function(req, res, next) {
   req.session.loggedIn = null;
@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
 .get('/register', function(req, res, next) {
   if (req.session.loggedIn === true) {
     res.redirect('/');
-  } else res.render('register', { title: 'Register' });
+  } else res.render('register', { title: '/Mu/sic Chart Generator | Register' });
 
 }) // ------------------ POST register -----------------------
 .post('/register', function(req, res, next) {
@@ -49,7 +49,7 @@ router.get('/', function(req, res, next) {
   if (req.session.loggedIn === true) {
     console.log("You're already logged in!");
     res.redirect('/');
-  } else res.render('login', { title: 'Login'});
+  } else res.render('login', { title: '/Mu/sic Chart Generator | Login'});
 }) // ------------------ POST login --------------------------
 .post('/login', function(req, res, next) {
   User.findOne({ username: req.body.username }, function(err, user) {

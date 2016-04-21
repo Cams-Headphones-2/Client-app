@@ -52,7 +52,7 @@ document.addEventListener("dragenter", function( event ) {
     }
 
     if ( event.target.className == "dropzone" ) {
-        event.target.style.background = "purple";
+        event.target.style.background = "#337ab7";
     }
 
 }, false);

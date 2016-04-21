@@ -6,7 +6,7 @@ var User          = require('../models/user'),
 // ------------------ GET chart-builder --------------------
 router.get('/build', function(req, res, next) {
   if(req.session.loggedIn === true) {
-    res.render('chart-builder', { title: 'Build a chart' });
+    res.render('chart-builder', { title: '/Mu/sic Chart Generator | Chart Builder' });
   } else res.redirect('/login');
 })
 .post('/build', function(req, res, next) {
@@ -25,34 +25,28 @@ router.get('/build', function(req, res, next) {
     req.session.chartID = req.body.chartID;
     Chart.findOne({ _id: req.body.chartID }, function(err, chart) {
       if (chart) {
-        res.render('chart-viewer', { title: 'View a Chart' })
+        res.render('chart-viewer', { title: '/Mu/sic Chart Generator | View Chart' })
       } else res.redirect('/account');
     });
-}) // ---------------- get CHART ------------------
+}) // ---------------- get CHART for Ajax call ------------------
 .get('/getchart', function(req, res, next) {
    Chart.findOne({ _id: req.session.chartID }, function(err, chart) {
      if (chart) {
-       console.log(chart);
        res.send(chart);
      } else console.log("no such chart exists");
    });
 }) // ---------------- Delete chart ------------------
 .post('/delete', function(req, res, next) {
-  console.log(req.body.chartID);
   Chart.remove({ _id: req.body.chartID }, true);
   res.redirect('/account');
 })
 .post('/edit', function(req, res, next) {
-  console.log(req.session.chartID);
-  console.log(req.body.nameOfChart);
-  console.log('hey man we tried to update it')
   Chart.findByIdAndUpdate(req.session.chartID, { nameOfChart: req.body.nameOfChart, contents: req.body.chart }, function (err, chart) {
   console.log(chart);
   })
   res.redirect('/account')
 
 })
-
 .get('/edit', function(req, res, next) {
     req.session.chartID = req.body.chartID;
     Chart.findOne({ _id: req.body.chartID }, function(err, chart) {
@@ -60,10 +54,6 @@ router.get('/build', function(req, res, next) {
         res.render('chart-viewer', { title: 'View a Chart' })
       } else res.redirect('/account');
     });
-})
-
-.post('/save', function(req, res, next) {
-
 });
 
 module.exports = router;
