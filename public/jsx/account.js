@@ -17,6 +17,36 @@ var UserChart = React.createClass({
         return {charts: [], imgURL: "", artist: "", album: ""}
       },
 
+      componentDidMount: function(){
+          //  this.props.items = [];
+           var self = this;
+           $.ajax({
+              url: '/tacos',
+              type: 'get',
+              dataType: 'json',
+              success: function(response){
+                console.log(response)
+                console.log("here's your damn object")
+                // return self.state.items = response;
+
+                response.forEach(function(serv){
+                  // state = self.state;
+                  self.state.items.push(serv);
+                  console.log(self.state.items)
+                  self.setState();
+                  // self.setState(state);
+
+
+                })
+
+              },
+              error: function(err){
+                console.log(err)
+              }
+            })
+            console.log(self.state.items)
+         },
+
       handlechartsearchChange: function(event){
         console.log(event.target.value)
         var state = this.state;
