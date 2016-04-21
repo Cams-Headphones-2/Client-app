@@ -8,7 +8,8 @@ $('#build-btn').click(function() {
   $(newRow).append('<div class="dropzone" style="margin-left: 2px; margin-right: 2px"></div>');
   $(newRow).append('<div class="dropzone" style="margin-left: 2px; margin-right: 2px"></div>');
   $(newRow).append('<div class="dropzone" style="margin-left: 2px"></div>');
-  $('.zone-container').append(newRow);
+  $('#zone-container').append(newRow);
+  console.log('we built this city')
 })
 
 /* events fired on the draggable target */
@@ -35,7 +36,11 @@ document.addEventListener("dragover", function( event ) {
 }, false);
 
 document.addEventListener("dragenter", function( event ) {
-    // highlight potential drop target when the draggable element enters it
+    // highlight potential drop target when the draggable element enters it'
+    if ( event.target.id == "delete-box" ) {
+        event.target.style.border = "1px solid red";
+    }
+
     if ( event.target.className == "dropzone" ) {
         event.target.style.background = "purple";
     }
@@ -44,6 +49,10 @@ document.addEventListener("dragenter", function( event ) {
 
 document.addEventListener("dragleave", function( event ) {
     // reset background of potential drop target when the draggable element leaves it
+    if ( event.target.id == "delete-box" ) {
+        event.target.style.border = "1px dashed white";
+    }
+
     if ( event.target.className == "dropzone" ) {
         event.target.style.background = "";
     }
@@ -56,6 +65,8 @@ document.addEventListener("drop", function( event ) {
     // move dragged elem to the selected drop target
     if ( event.target.id == "delete-box" ) {
         dragged.remove();
+        event.target.style.border = "1px dashed white";
+
     }
 
     if ( event.target.className == "dropzone" ) {
