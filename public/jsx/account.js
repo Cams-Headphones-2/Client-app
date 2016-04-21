@@ -64,7 +64,7 @@ var UserChart = React.createClass({
     var ChartDiv = React.createClass({
       render: function() {
         return (
-          <div draggable="true" data-location="3" className="album-div">
+          <div draggable="true" data-location="3">
             <p className="chart-name">{this.props.chartName}</p>
             <input type="hidden" name="chart-ID" value={this.props.chartID} />
 
