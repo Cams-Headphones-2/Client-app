@@ -42,6 +42,7 @@ $('#save-btn').click(function(event){
 
 $('#load-btn').click(function(event){
         event.preventDefault();
+        console.log('You clicked the load butn!')
         // console.log(contents)
         $.ajax({
           url: '/getchart',

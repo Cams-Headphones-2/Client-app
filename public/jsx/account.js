@@ -61,7 +61,7 @@ var UserChart = React.createClass({
 
             {
               this.state.charts.map(function(chart, i){
-                return <ChartDiv chartName={chart.nameOfChart} chartID={chart._id} key={i} />
+                return <ChartDiv chartName={chart.nameOfChart} chartID={chart._id} contents={chart.contents} key={i} />
               }.bind(this))
             }
 
@@ -77,6 +77,7 @@ var UserChart = React.createClass({
 
             <tr>
               <td>{this.props.chartName}</td>
+
               <td><center><form action="/edit" method="post"><input type="hidden" name="chart-ID" value={this.props.chartID} />
               <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon glyphicon-pencil">    <input type="hidden" name="chart-ID" value={this.props.chartID} /></span></button></form></center></td>
 
@@ -85,6 +86,10 @@ var UserChart = React.createClass({
 
               <td><center><form action="/delete" method="post"><input type="hidden" name="chart-ID" value={this.props.chartID} />
               <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon  glyphicon-trash"></span></button></form></center></td>
+
+              <td><center><form action="/viewchart" method="post"><input type="hidden" name="chartID" value={this.props.chartID} />
+              <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon  glyphicon-share"></span></button></form></center></td>
+
             </tr>
 
         )

@@ -17,7 +17,6 @@ router.get('/', function(req, res, next) {
 .get('/accountCharts', function(req, res, next) {
     Chart.find({ authorId: req.session.currentUserId }, function(err, chart) {
       res.send(chart);
-
     })
 })
 
@@ -28,7 +27,6 @@ router.get('/', function(req, res, next) {
 //   // } else res.redirect('/login');
 //
 //     });
-// })
 .get('/editChart', function(req, res, next) {
   res.render('edit-chart', { title: "Edit your Chart" });
 })

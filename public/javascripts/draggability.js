@@ -1,13 +1,15 @@
 var dragged;
 
-// $("#user-chart a").click(function(e) {
-// e.preventDefault();
-// console.log(this)
-// var data = $(this).data('id');
-// var attrmethod = $(this).attr('data-id');
-//     console.log(data);
-//     console.log(attrmethod);
-// });
+$("#view-btn").click(function(e) {
+e.preventDefault();
+console.log('you clicked it')
+console.log(this)
+var contents = $(this).data('contents');
+var attrmethod = $(this).attr('data-contents');
+    console.log(data);
+    console.log(attrmethod);
+$('#viewer').append(contents)
+});
 
 $('#build-btn').click(function() {
   var newRow = $('<div class="row"></div>');
