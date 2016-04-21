@@ -37,12 +37,8 @@ router.get('/', function(req, res, next) {
         req.session.loggedIn = true;
         req.session.currentUserId = user._id;
         req.session.currentUser = user.username;
+        req.session.chartID;
         var currentUser = user.username;
-        console.log('-----------------------------');
-        console.log(req.session);
-        console.log('-----------------------------');
-        console.log(req.session.currentUserId);
-        console.log('-----------------------------');
         console.log("You have created an account under the name "+ currentUser +" and been logged in.");
         res.redirect('/');
       });
@@ -64,14 +60,9 @@ router.get('/', function(req, res, next) {
         req.session.loggedIn = true;
         req.session.currentUserId = user._id;
         req.session.currentUser = user.username;
+        req.session.chartID;
         var currentUser = user.username;
         console.log("Welcome to the site, "+ currentUser);
-        console.log('-----------------------------');
-        console.log(req.session);
-        console.log('-----------------------------');
-        console.log(req.session.currentUserId);
-        console.log('-----------------------------');
-        console.log(req.session.currentUser);
         res.redirect('/build');
       } else {
           console.log("The username or password you entered was incorrect.");
@@ -99,7 +90,6 @@ router.get('/', function(req, res, next) {
     res.redirect('/account');
   })
 })
-
 .get('/chartjson', function(req, res, next) {
   // if(req.session.loggedIn === true) {
     Chart.find(function(err, chart){
@@ -113,17 +103,44 @@ router.get('/', function(req, res, next) {
     res.render('chart-viewer', { title: 'View a Chart' });
 })
   // ---------------- TESTING ------------------
-.get('/getchart', function(req, res, next) {
-    Chart.findOne({ _id: "5717a60158d2867e1c5d6f10" }, function(err, chart) {
+.post('/viewchart', function(req, res, next) {
+    req.session.chartID = req.body.chartID;
+    Chart.findOne({ _id: req.body.chartID }, function(err, chart) {
+      if (chart) {
+        // res.render('chart-viewer', { title: 'View a Chart' })
+      } else res.redirect('/account');
+    });
+})
+.get('/viewchart', function(req, res, next) {
+    var thechart;
+    req.session.chartID = req.body.chartID;
+    Chart.findOne({ _id: req.body.chartID }, function(err, chart) {
       if (chart) {
         console.log(chart);
-        res.send(chart);
+        // res.send(chart);
+        thechart = chart;
+        res.render('chart-viewer', { title: 'View a Chart', contents: thechart.contents })
       } else console.log("no such chart exists");
     });
 })
-
+.get('/getchart', function(req, res, next) {
+   Chart.findOne({ _id: req.session.chartID }, function(err, chart) {
+     if (chart) {
+       console.log(chart);
+       res.send(chart);
+     } else console.log("no such chart exists");
+   });
+})
 .post('/edit', function(req, res, next) {
   console.log(req.body);
+  console.log(req.body.chartID[0])
+  // if(req.session.loggedIn === true) {
+  //   res.render('profile-edit', { title: "Edit my account" });
+  // } else res.redirect('/login');
+})
+.post('/delete', function(req, res, next) {
+  console.log(req.body);
+  console.log(req.body.chartID)
   // if(req.session.loggedIn === true) {
   //   res.render('profile-edit', { title: "Edit my account" });
   // } else res.redirect('/login');
