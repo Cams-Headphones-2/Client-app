@@ -32,7 +32,6 @@ var UserChart = React.createClass({
                 response.forEach(function(chart){
                   // state = self.state;
                   self.state.charts.push(chart);
-                  console.log(self.state.charts)
                   self.setState();
                   // self.setState(state);
 
@@ -78,10 +77,10 @@ var UserChart = React.createClass({
         return (
             <tr>
               <td>{this.props.chartName}</td>
-              <td><center><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></center></td>
-              <td><center><a href="#"><span class="glyphicon glyphicon-floppy-save"></span></a></center></td>
-              <td><center><a href="#"><span class="glyphicon glyphicon-share"></span></a></center></td>
-              <td><center><a href="#"><span class="glyphicon glyphicon-trash"></span></a></center></td>
+              <td><center><a href="#"><span className="glyphicon glyphicon-pencil"></span></a></center></td>
+              <td><center><a href="#"><span className="glyphicon glyphicon-floppy-save"></span></a></center></td>
+              <td><center><a href="#"><span className="glyphicon glyphicon-share"></span></a></center></td>
+              <td><center><a href="#"><span className="glyphicon glyphicon-trash"></span></a></center></td>
             </tr>
 
         )
