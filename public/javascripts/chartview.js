@@ -3,7 +3,7 @@ window.onload = function(event){
         // $('#zone-container').innerHTML(contents);
         // console.log(contents)
         $.ajax({
-          url: '/getchart',
+          url: '/charts/getchart',
           type: 'get',
           // data: contents,
           dataType: 'json',
@@ -22,13 +22,14 @@ window.onload = function(event){
 
 $('#edit-btn').click(function(event){
         event.preventDefault();
+        console.log('we tried to save it, we really did');
         var contents = {
           chart: document.getElementById('zone-container').innerHTML,
           nameOfChart: document.getElementById('title').innerHTML
         }
         console.log(typeof contents)
         $.ajax({
-          url: '/edit',
+          url: '/charts/edit',
           type: 'post',
           data: contents,
           dataType: 'json',

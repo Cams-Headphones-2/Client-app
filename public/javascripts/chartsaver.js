@@ -6,7 +6,7 @@ $('#save-btn').click(function(event){
         }
         console.log(typeof contents)
         $.ajax({
-          url: '/build',
+          url: '/charts/build',
           type: 'post',
           data: contents,
           dataType: 'json',

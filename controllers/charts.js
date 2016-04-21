@@ -42,8 +42,28 @@ router.get('/build', function(req, res, next) {
   Chart.remove({ _id: req.body.chartID }, true);
   res.redirect('/account');
 })
+.post('/edit', function(req, res, next) {
+  console.log(req.session.chartID);
+  console.log('hey man we tried to update it')
+    Chart.update({ _id: req.session.chartID }, {
+          nameOfChart : req.body.nameOfChart,
+          authorId    : req.session.currentUserId,
+          contents    : req.body.chart
+        })
+        res.render('chart-viewer', { title: 'View a Chart' })
+    })
+
+.get('/edit', function(req, res, next) {
+    req.session.chartID = req.body.chartID;
+    Chart.findOne({ _id: req.body.chartID }, function(err, chart) {
+      if (chart) {
+        res.render('chart-viewer', { title: 'View a Chart' })
+      } else res.redirect('/account');
+    });
+})
+
 .post('/save', function(req, res, next) {
-  
+
 });
 
 module.exports = router;
