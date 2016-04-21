@@ -1,5 +1,12 @@
+window.onload = function(event){
+
+  $('#save-thing').hide();
+};
+
+
 $('#save-btn').click(function(event){
         event.preventDefault();
+
         var contents = {
           chart: document.getElementById('zone-container').innerHTML,
           nameOfChart: document.getElementById('title').innerHTML
@@ -11,6 +18,8 @@ $('#save-btn').click(function(event){
           data: contents,
           dataType: 'json',
           success: function(){
+            $('#save-thing').fadeIn(function(){ $('#save-thing').fadeOut(1000); });
+
             console.log('chart sent')
           },
           error: function(err){
