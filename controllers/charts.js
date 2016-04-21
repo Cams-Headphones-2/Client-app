@@ -22,7 +22,6 @@ router.get('/build', function(req, res, next) {
 })
 // ---------------- VIEW CHART ------------------
 .post('/viewchart', function(req, res, next) {
-  console.log(req.body.chartID);
     req.session.chartID = req.body.chartID;
     Chart.findOne({ _id: req.body.chartID }, function(err, chart) {
       if (chart) {
@@ -31,7 +30,6 @@ router.get('/build', function(req, res, next) {
     });
 }) // ---------------- get CHART for Ajax call ------------------
 .get('/getchart', function(req, res, next) {
-  console.log(req.body.chartID);
    Chart.findOne({ _id: req.session.chartID }, function(err, chart) {
      if (chart) {
        res.send(chart);
@@ -39,18 +37,14 @@ router.get('/build', function(req, res, next) {
    });
 }) // ---------------- Delete chart ------------------
 .post('/delete', function(req, res, next) {
-  console.log(req.body.chartID);
   Chart.remove({ _id: req.body.chartID }, true);
   res.redirect('/account');
 })
 .post('/edit', function(req, res, next) {
-  console.log(req.session.chartID);
-  console.log(req.body.nameOfChart);
-  console.log('hey man we tried to update it')
   Chart.findByIdAndUpdate(req.session.chartID, { nameOfChart: req.body.nameOfChart, contents: req.body.chart }, function (err, chart) {
   console.log(chart);
-  })
-  res.redirect('/account');
+  });
+  res.render('account');
 })
 .get('/edit', function(req, res, next) {
     req.session.chartID = req.body.chartID;
