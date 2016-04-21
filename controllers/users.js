@@ -17,6 +17,16 @@ router.get('/', function(req, res, next) {
 .get('/accountCharts', function(req, res, next) {
     Chart.find({ authorId: req.session.currentUserId }, function(err, chart) {
       res.send(chart);
+    })
+})
+
+.post('/edit', function(req, res, next) {
+  console.log(req);
+  // if(req.session.loggedIn === true) {
+  //   res.render('profile-edit', { title: "Edit my account" });
+  // } else res.redirect('/login');
+=======
+>>>>>>> development
     });
 })
 .get('/editChart', function(req, res, next) {
@@ -26,6 +36,7 @@ router.get('/', function(req, res, next) {
   Chart.findOne({ _id: "CHART ID"}, function(err, chart) {
     chart.destory;
   });
+<<<<<<< HEAD
   res.redirect('/');
 })
 
@@ -34,6 +45,9 @@ router.get('/', function(req, res, next) {
   // if(req.session.loggedIn === true) {
   //   res.render('profile-edit', { title: "Edit my account" });
   // } else res.redirect('/login');
+=======
+>>>>>>> dev-cam
+>>>>>>> development
 });
 
 
