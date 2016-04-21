@@ -22,19 +22,17 @@ window.onload = function(event){
 
 $('#edit-btn').click(function(event){
         event.preventDefault();
-        console.log('we tried to save it, we really did');
         var contents = {
           chart: document.getElementById('zone-container').innerHTML,
           nameOfChart: document.getElementById('title').innerHTML
         };
-        console.log(typeof contents)
         $.ajax({
           url: '/charts/edit',
           type: 'post',
           data: contents,
           dataType: 'json',
           success: function(){
-            console.log('chart sent')
+            console.log('chart sent');
           },
           error: function(err){
             console.log(err)
