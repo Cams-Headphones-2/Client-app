@@ -2,7 +2,7 @@ window.onload = function(event){
         event.preventDefault();
         // console.log(contents)
         $.ajax({
-          url: '/getchart',
+          url: '/charts/getchart',
           type: 'get',
           // data: contents,
           dataType: 'json',

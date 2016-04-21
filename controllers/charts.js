@@ -22,17 +22,18 @@ router.get('/build', function(req, res, next) {
 })
 // ---------------- VIEW CHART ------------------
 .post('/viewchart', function(req, res, next) {
+  console.log(req.body.chartID);
     req.session.chartID = req.body.chartID;
     Chart.findOne({ _id: req.body.chartID }, function(err, chart) {
       if (chart) {
         res.render('chart-viewer', { title: 'View a Chart' })
       } else res.redirect('/account');
     });
-}) // ---------------- get CHART ------------------
+}) // ---------------- get CHART for Ajax call ------------------
 .get('/getchart', function(req, res, next) {
+  console.log(req.body.chartID);
    Chart.findOne({ _id: req.session.chartID }, function(err, chart) {
      if (chart) {
-       console.log(chart);
        res.send(chart);
      } else console.log("no such chart exists");
    });
@@ -42,8 +43,8 @@ router.get('/build', function(req, res, next) {
   Chart.remove({ _id: req.body.chartID }, true);
   res.redirect('/account');
 })
-.post('/save', function(req, res, next) {
-  
+.get('/export', function(req, res, next) {
+  res.redirect('/account');
 });
 
 module.exports = router;
