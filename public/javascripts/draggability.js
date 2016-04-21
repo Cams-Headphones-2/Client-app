@@ -36,7 +36,11 @@ document.addEventListener("dragover", function( event ) {
 }, false);
 
 document.addEventListener("dragenter", function( event ) {
-    // highlight potential drop target when the draggable element enters it
+    // highlight potential drop target when the draggable element enters it'
+    if ( event.target.id == "delete-box" ) {
+        event.target.style.border = "1px solid red";
+    }
+
     if ( event.target.className == "dropzone" ) {
         event.target.style.background = "purple";
     }
@@ -45,6 +49,10 @@ document.addEventListener("dragenter", function( event ) {
 
 document.addEventListener("dragleave", function( event ) {
     // reset background of potential drop target when the draggable element leaves it
+    if ( event.target.id == "delete-box" ) {
+        event.target.style.border = "1px dashed white";
+    }
+
     if ( event.target.className == "dropzone" ) {
         event.target.style.background = "";
     }
