@@ -17,6 +17,7 @@ router.get('/', function(req, res, next) {
 .get('/accountCharts', function(req, res, next) {
     Chart.find({ authorId: req.session.currentUserId }, function(err, chart) {
       res.send(chart);
+<<<<<<< HEAD
     })
 })
 
@@ -25,6 +26,17 @@ router.get('/', function(req, res, next) {
   // if(req.session.loggedIn === true) {
   //   res.render('profile-edit', { title: "Edit my account" });
   // } else res.redirect('/login');
+=======
+    });
+})
+.get('/editChart', function(req, res, next) {
+  res.render('edit-chart', { title: "Edit your Chart" });
+})
+.get('/remove', function(req, res, next) {
+  Chart.findOne({ _id: "CHART ID"}, function(err, chart) {
+    chart.destory;
+  });
+>>>>>>> dev-cam
 });
 
 
