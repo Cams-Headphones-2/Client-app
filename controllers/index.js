@@ -30,7 +30,7 @@ router.get('/', function(req, res, next) {
     } else {
         User.create({
           username      : req.body.username,
-          passwordHash  : bcrypt.hashSync(req.body.passnwordHash, dbSalt),
+          passwordHash  : bcrypt.hashSync(req.body.passwordHash, dbSalt),
           email         : req.body.email,
       }, function(err, user) {
         req.session.loggedIn = true;
