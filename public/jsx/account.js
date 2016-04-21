@@ -49,13 +49,25 @@ var UserChart = React.createClass({
 
       render: function(){
         return(
-          <div id="charts-list">
+          <table class="table table" id="user-chart">
+
+          <thead>
+            <tr>
+              <th>Chart Name</th>
+              <th><center>Edit</center></th>
+              <th><center>Export</center></th>
+              <th><center>Share</center></th>
+              <th><center>Remove</center></th>
+            </tr>
+          </thead>
+          <tbody>
             {
               this.state.charts.map(function(chart, i){
-                return <ChartDiv chartName={chart.nameOfChart} chartID={chart.id} key={i} />
+                return <ChartDiv chartName={chart.nameOfChart} chartID={chart._id} key={i} />
               }.bind(this))
             }
-          </div>
+          </tbody>
+          </table>
 
         )
       }
@@ -64,12 +76,14 @@ var UserChart = React.createClass({
     var ChartDiv = React.createClass({
       render: function() {
         return (
-          <div draggable="true" data-location="3">
-            <p className="chart-name">{this.props.chartName}</p>
-            <input type="hidden" name="chart-ID" value={this.props.chartID} />
+            <tr>
+              <td>{this.props.chartName}</td>
+              <td><center><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></center></td>
+              <td><center><a href="#"><span class="glyphicon glyphicon-floppy-save"></span></a></center></td>
+              <td><center><a href="#"><span class="glyphicon glyphicon-share"></span></a></center></td>
+              <td><center><a href="#"><span class="glyphicon glyphicon-trash"></span></a></center></td>
+            </tr>
 
-
-          </div>
         )
       }
     })
@@ -81,3 +95,5 @@ var UserChart = React.createClass({
     // <p>{this.state.album}</p>
     // <p>{this.state.artist}</p>
     // </div>
+
+    // <input type="hidden" name="chart-ID" value={this.props.chartID} />
