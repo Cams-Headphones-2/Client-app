@@ -34,10 +34,7 @@ var UserChart = React.createClass({
                   self.state.charts.push(chart);
                   self.setState();
                   // self.setState(state);
-
-
                 })
-
               },
               error: function(err){
                 console.log(err)

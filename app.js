@@ -1,11 +1,12 @@
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var session = require('express-session');
+var express = require('express'),
+    path = require('path'),
+    favicon = require('serve-favicon'),
+    logger = require('morgan'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
+    session = require('express-session'),
+    Handlebars = require('handlebars');
 
 require('./db/database.js');
 
@@ -35,8 +36,22 @@ app.use(session({
 }));
 // end sessions
 
+// How to handle conditional display of navbar???
+// Handlebars.registerHelper('navbar_if', function(a,b) {
+//   if(req.session.loggedIn === true) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// });
+
 app.use('/', routes);
 app.use('/account', users);
+
+// How to handle conditional display of navbar???
+// app.use(function(req, res, next) {
+//
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

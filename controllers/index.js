@@ -13,6 +13,7 @@ router.get('/', function(req, res, next) {
 .get('/logout', function(req, res, next) {
   req.session.loggedIn = null;
   req.session.currentUserId = null;
+  req.session.currentUser = null;
   console.log('You have been logged out.');
   res.redirect('/');
 }) // ------------------ GET register ------------------------
