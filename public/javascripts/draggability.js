@@ -65,6 +65,8 @@ document.addEventListener("drop", function( event ) {
     // move dragged elem to the selected drop target
     if ( event.target.id == "delete-box" ) {
         dragged.remove();
+        event.target.style.border = "1px dashed white";
+
     }
 
     if ( event.target.className == "dropzone" ) {
