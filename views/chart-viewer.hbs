@@ -3,16 +3,39 @@
     <!-- your first col -->
     <div class="col-sm-8 col1 center">
       <div id="zone-container">
-
       </div><!--close zone container -->
+      <br>
+      <button type="button" id="build-btn" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-triangle-bottom"></span> Load New Rows</button>
 
-      <button type="button" id="build-btn" class="btn btn-warning btn-lg">Load New Rows</button>
-
-      <button id="load-btn" type="button" class="btn btn-success btn-lg">Load Latest Chart</button>
+      <button id="edit-btn" type="button" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-floppy-save"></span> Save This Chart</button>
+      <br/>
+      <br/>
+      <div id="delete-box" class="dropzone trash"></div>
     </div>
 
+    <div class="col-sm-4 col2 center">
+        <div class="col-sm-12">
+          <div class="jumbotron">
+            <h2 class="darker">Title Editor</h2>
+            <center><div id="title-editor" style="height: 50px; width: 178px; color: black"></div></center>
+          </div>
+        </div>
 
+    </div>
+    <div class="col-sm-4 col2 center">
+        <div class="col-sm-12">
+          <div class="jumbotron bottompad">
+            <h2 class="darker">Album Search</h2>
+            <p class="searchtext">Search for an album, then click-drag the result to the chart on the left. For best results, type in both <b>artist name</b> and <b>album name</b>.</p>
+            <center><div id="title-editor" style="height: 50px; width: 178px; color: black"></div></center>
+            <center><div id="example" style="height: 400px; width: 178px; color: black"></div></center>
+          </div>
+        </div>
+        <br/>
+
+    </div>
   </div>
 </div>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 <script type="text/javascript" src="/javascripts/chartview.js"></script>

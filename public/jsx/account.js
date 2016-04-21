@@ -53,6 +53,7 @@ var UserChart = React.createClass({
               <th><center>Edit</center></th>
               <th><center>Export</center></th>
               <th><center>Remove</center></th>
+
             </tr>
           </thead>
 
@@ -75,17 +76,14 @@ var UserChart = React.createClass({
             <tr>
               <td>{this.props.chartName}</td>
 
-              <td><center><form action="/edit" method="post"><input type="hidden" name="chartID" value={this.props.chartID} />
-              <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon glyphicon-pencil">    <input type="hidden" name="chartID" value={this.props.chartID} /></span></button></form></center></td>
+              <td><center><form action="/charts/viewchart" method="post"><input type="hidden" name="chartID" value={this.props.chartID} />
+              <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon  glyphicon-pencil"></span></button></form></center></td>
 
-              <td><center><form action="/save" method="post"><input type="hidden" name="chartID" value={this.props.chartID} />
+              <td><center><form action="/charts/viewchart" method="post"><input type="hidden" name="chartID" value={this.props.chartID} />
               <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon  glyphicon-floppy-save"></span></button></form></center></td>
 
               <td><center><form action="/charts/delete" method="post"><input type="hidden" name="chartID" value={this.props.chartID} />
               <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon  glyphicon-trash"></span></button></form></center></td>
-
-              <td><center><form action="/charts/viewchart" method="post"><input type="hidden" name="chartID" value={this.props.chartID} />
-              <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon  glyphicon-share"></span></button></form></center></td>
 
             </tr>
 
