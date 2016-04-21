@@ -123,6 +123,15 @@ router.get('/', function(req, res, next) {
 
 .post('/edit', function(req, res, next) {
   console.log(req.body);
+  console.log(req.body.chartID[0])
+  // if(req.session.loggedIn === true) {
+  //   res.render('profile-edit', { title: "Edit my account" });
+  // } else res.redirect('/login');
+})
+
+.post('/delete', function(req, res, next) {
+  console.log(req.body);
+  console.log(req.body.chartID)
   // if(req.session.loggedIn === true) {
   //   res.render('profile-edit', { title: "Edit my account" });
   // } else res.redirect('/login');
