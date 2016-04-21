@@ -99,28 +99,13 @@ router.get('/', function(req, res, next) {
 
   // } else res.redirect('/login');
 })
-.get('/chartviewer', function(req, res, next) {
-    res.render('chart-viewer', { title: 'View a Chart' });
-})
   // ---------------- TESTING ------------------
 .post('/viewchart', function(req, res, next) {
     req.session.chartID = req.body.chartID;
     Chart.findOne({ _id: req.body.chartID }, function(err, chart) {
       if (chart) {
-        // res.render('chart-viewer', { title: 'View a Chart' })
+        res.render('chart-viewer', { title: 'View a Chart' })
       } else res.redirect('/account');
-    });
-})
-.get('/viewchart', function(req, res, next) {
-    var thechart;
-    req.session.chartID = req.body.chartID;
-    Chart.findOne({ _id: req.body.chartID }, function(err, chart) {
-      if (chart) {
-        console.log(chart);
-        // res.send(chart);
-        thechart = chart;
-        res.render('chart-viewer', { title: 'View a Chart', contents: thechart.contents })
-      } else console.log("no such chart exists");
     });
 })
 .get('/getchart', function(req, res, next) {
@@ -139,11 +124,9 @@ router.get('/', function(req, res, next) {
   // } else res.redirect('/login');
 })
 .post('/delete', function(req, res, next) {
-  console.log(req.body);
-  console.log(req.body.chartID)
-  // if(req.session.loggedIn === true) {
-  //   res.render('profile-edit', { title: "Edit my account" });
-  // } else res.redirect('/login');
+  console.log(req.body.chartID);
+  Chart.remove({ _id: req.body.chartID }, true);
+  res.redirect('/account');
 });
 
 module.exports = router;
