@@ -6815,3 +6815,23 @@ p {
 .navbar-default .navbar-brand {
   color: #337ab7;
 }
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: black;
+  font: inherit;
+  margin: 0;
+}
+#user-chart td {
+  vertical-align: top;
+  padding-top: 10px;
+  width: 285px;
+}
+#user-chart thead {
+  border-bottom: 1px solid white;
+}
+.green {
+  text-decoration: underline;
+}

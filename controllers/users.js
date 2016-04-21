@@ -28,6 +28,7 @@ router.get('/', function(req, res, next) {
 //
 // });
 
+
 .get('/editChart', function(req, res, next) {
   res.render('edit-chart', { title: "Edit your Chart" });
 })
@@ -36,6 +37,7 @@ router.get('/', function(req, res, next) {
   Chart.findOne({ _id: "CHART ID"}, function(err, chart) {
     chart.destory;
   });
+
 });
 
 
