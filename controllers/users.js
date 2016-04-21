@@ -18,6 +18,13 @@ router.get('/', function(req, res, next) {
     Chart.find({ authorId: req.session.currentUserId }, function(err, chart) {
       res.send(chart);
     })
+})
+
+.post('/edit', function(req, res, next) {
+  console.log(req);
+  // if(req.session.loggedIn === true) {
+  //   res.render('profile-edit', { title: "Edit my account" });
+  // } else res.redirect('/login');
 });
 
 

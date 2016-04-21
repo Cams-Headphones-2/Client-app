@@ -121,4 +121,11 @@ router.get('/', function(req, res, next) {
     });
 })
 
+.post('/edit', function(req, res, next) {
+  console.log(req.body);
+  // if(req.session.loggedIn === true) {
+  //   res.render('profile-edit', { title: "Edit my account" });
+  // } else res.redirect('/login');
+});
+
 module.exports = router;
