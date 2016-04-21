@@ -31,7 +31,7 @@ router.get('/', function(req, res, next) {
     } else {
         User.create({
           username      : req.body.username,
-          passwordHash  : bcrypt.hashSync(req.body.passnwordHash, dbSalt),
+          passwordHash  : bcrypt.hashSync(req.body.passwordHash, dbSalt),
           email         : req.body.email,
       }, function(err, user) {
         req.session.loggedIn = true;
@@ -121,5 +121,12 @@ router.get('/', function(req, res, next) {
       } else console.log("no such chart exists");
     });
 })
+
+.post('/edit', function(req, res, next) {
+  console.log(req.body);
+  // if(req.session.loggedIn === true) {
+  //   res.render('profile-edit', { title: "Edit my account" });
+  // } else res.redirect('/login');
+});
 
 module.exports = router;

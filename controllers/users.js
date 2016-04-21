@@ -27,6 +27,13 @@ router.get('/', function(req, res, next) {
     chart.destory;
   });
   res.redirect('/');
+})
+
+.post('/edit', function(req, res, next) {
+  console.log(req);
+  // if(req.session.loggedIn === true) {
+  //   res.render('profile-edit', { title: "Edit my account" });
+  // } else res.redirect('/login');
 });
 
 

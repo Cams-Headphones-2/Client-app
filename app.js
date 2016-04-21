@@ -18,6 +18,13 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+Handlebars.registerHelper('navbar_if', function(a,b) {
+  if(req.session.loggedIn === true) {
+    return true;
+  } else {
+    return false;
+  }
+});
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -37,13 +44,7 @@ app.use(session({
 // end sessions
 
 // How to handle conditional display of navbar???
-// Handlebars.registerHelper('navbar_if', function(a,b) {
-//   if(req.session.loggedIn === true) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// });
+
 
 app.use('/', routes);
 app.use('/account', users);

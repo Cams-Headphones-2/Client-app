@@ -74,10 +74,15 @@ var UserChart = React.createClass({
         return (
             <tr>
               <td>{this.props.chartName}</td>
-              <td><center><a href="#"><span className="glyphicon glyphicon-pencil"></span></a></center></td>
-              <td><center><a href="#"><span className="glyphicon glyphicon-floppy-save"></span></a></center></td>
-              <td><center><a href="#"><span className="glyphicon glyphicon-share"></span></a></center></td>
-              <td><center><a href="#"><span className="glyphicon glyphicon-trash"></span></a></center></td>
+              <td><center><form action="/edit" method="post"><input type="hidden" name="chart-ID" value={this.props.chartID} />
+              <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon glyphicon-pencil">    <input type="hidden" name="chart-ID" value={this.props.chartID} />
+              </span></button></form></center></td>
+              <td><center><form action="/save" method="post"><input type="hidden" name="chart-ID" value={this.props.chartID} />
+              <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon  glyphicon-floppy-save"></span></button></form></center></td>
+              <td><center><form action="/share" method="post"><input type="hidden" name="chart-ID" value={this.props.chartID} />
+              <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon  glyphicon-share"></span></button></form></center></td>
+              <td><center><form action="/delete" method="post"><input type="hidden" name="chart-ID" value={this.props.chartID} />
+              <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon  glyphicon-trash"></span></button></form></center></td>
             </tr>
 
         )
@@ -91,5 +96,3 @@ var UserChart = React.createClass({
     // <p>{this.state.album}</p>
     // <p>{this.state.artist}</p>
     // </div>
-
-    // <input type="hidden" name="chart-ID" value={this.props.chartID} />
