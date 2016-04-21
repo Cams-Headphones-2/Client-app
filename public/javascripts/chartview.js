@@ -18,3 +18,24 @@ window.onload = function(event){
           }
         })
 }
+
+$('#edit-btn').click(function(event){
+        event.preventDefault();
+        var contents = {
+          chart: document.getElementById('zone-container').innerHTML,
+          nameOfChart: document.getElementById('title').innerHTML
+        }
+        console.log(typeof contents)
+        $.ajax({
+          url: '/edit',
+          type: 'post',
+          data: contents,
+          dataType: 'json',
+          success: function(){
+            console.log('chart sent')
+          },
+          error: function(err){
+            console.log(err)
+          }
+        })
+});

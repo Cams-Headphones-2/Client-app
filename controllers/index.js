@@ -101,6 +101,18 @@ router.get('/', function(req, res, next) {
   })
 })
 
+.post('/edit', function(req, res, next) {
+  Chart.create({
+    nameOfChart : req.body.nameOfChart,
+    authorId    : req.session.currentUserId,
+    contents    : req.body.chart
+  }, function(err, chart) {
+    console.log("You have created a chart!");
+    // console.log(db.chart.find({}));
+    res.redirect('/account');
+  })
+})
+
 .get('/chartjson', function(req, res, next) {
   // if(req.session.loggedIn === true) {
     Chart.find(function(err, chart){
