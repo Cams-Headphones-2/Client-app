@@ -40,7 +40,7 @@ router.get('/', function(req, res, next) {
         req.session.chartID;
         var currentUser = user.username;
         console.log("You have created an account under the name "+ currentUser +" and been logged in.");
-        res.redirect('/');
+        res.redirect('/charts/build');
       });
     }
   });
@@ -63,7 +63,7 @@ router.get('/', function(req, res, next) {
         req.session.chartID;
         var currentUser = user.username;
         console.log("Welcome to the site, "+ currentUser);
-        res.redirect('/build');
+        res.redirect('/charts/build');
       } else {
           console.log("The username or password you entered was incorrect.");
           res.redirect('/login');
@@ -73,60 +73,6 @@ router.get('/', function(req, res, next) {
         res.redirect('/register');
       }
   });
-}) // ------------------ GET chart-builder --------------------
-.get('/build', function(req, res, next) {
-  if(req.session.loggedIn === true) {
-    res.render('chart-builder', { title: 'Build a chart' });
-  } else res.redirect('/login');
-})
-.post('/build', function(req, res, next) {
-  Chart.create({
-    nameOfChart : req.body.nameOfChart,
-    authorId    : req.session.currentUserId,
-    contents    : req.body.chart
-  }, function(err, chart) {
-    console.log("You have created a chart!");
-    // console.log(db.chart.find({}));
-    res.redirect('/account');
-  })
-})
-.get('/chartjson', function(req, res, next) {
-  // if(req.session.loggedIn === true) {
-    Chart.find(function(err, chart){
-      res.json(chart)
-    })
-    // res.render('chart-viewer', { title: 'View a Chart' });
-
-  // } else res.redirect('/login');
-})
-  // ---------------- TESTING ------------------
-.post('/viewchart', function(req, res, next) {
-    req.session.chartID = req.body.chartID;
-    Chart.findOne({ _id: req.body.chartID }, function(err, chart) {
-      if (chart) {
-        res.render('chart-viewer', { title: 'View a Chart' })
-      } else res.redirect('/account');
-    });
-})
-.get('/getchart', function(req, res, next) {
-   Chart.findOne({ _id: req.session.chartID }, function(err, chart) {
-     if (chart) {
-       console.log(chart);
-       res.send(chart);
-     } else console.log("no such chart exists");
-   });
-})
-.post('/edit', function(req, res, next) {
-  console.log(req.body);
-  console.log(req.body.chartID[0])
-  // if(req.session.loggedIn === true) {
-  //   res.render('profile-edit', { title: "Edit my account" });
-  // } else res.redirect('/login');
-})
-.post('/delete', function(req, res, next) {
-  console.log(req.body.chartID);
-  Chart.remove({ _id: req.body.chartID }, true);
-  res.redirect('/account');
 });
 
 module.exports = router;
