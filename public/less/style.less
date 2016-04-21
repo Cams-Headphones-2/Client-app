@@ -2,12 +2,25 @@ p {
     text-align:center;
   }
 
+#draggable {
+  width: 200px;
+  height: 20px;
+  text-align: center;
+  background: white;
+}
+
 .home-image {
   padding: 3%;
 }
 
 .about {
   font-size: 24px;
+  text-align: center;
+  color: @gray-darker;
+}
+
+.searchtext {
+  font-size: 14px;
   text-align: center;
   color: @gray-darker;
 }
@@ -23,21 +36,6 @@ p {
      font-size: 14px;
      padding-top: 5px;
    }
-}
-
-#draggable {
-  width: 200px;
-  height: 20px;
-  text-align: center;
-  background: white;
-}
-
-.dropzone {
-  width: 178px;
-  height: 250px;
-  display: inline-block;
-  overflow: hidden;
-  background-image: url("../images/placeholder.png");
 }
 
 .center {
@@ -67,8 +65,20 @@ p {
   height: 100px;
 }
 
+.dropzone {
+  width: 178px;
+  height: 250px;
+  display: inline-block;
+  overflow: hidden;
+  background-image: url("../images/placeholder.png");
+}
+
 .trash {
   background-image: url("../images/trash.png");
+  border: 1px dashed white;
+  &:hover {
+   border: 1px dashed red;
+}
 }
 
 .logo {
@@ -84,13 +94,18 @@ p {
 }
 
 .bottompad {
-  height: 575px;
+  height: 700px;
 }
 
 .album-name{
-
+  font-style: italic;
 }
 
 .artist-name{
+  font-style: italic;
+  margin-top: -8px;
+}
 
+.navbar-default .navbar-brand {
+    color: #337ab7;
 }

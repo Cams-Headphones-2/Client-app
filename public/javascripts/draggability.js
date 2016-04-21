@@ -62,6 +62,7 @@ document.addEventListener("drop", function( event ) {
         event.target.style.background = "";
         dragged.parentNode.removeChild( dragged );
         event.target.appendChild( dragged );
+
     }
 
 }, false);

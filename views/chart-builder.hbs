@@ -7,24 +7,27 @@
         <!-- your row inside the col -->
         <div class="row">
           <h4 class="genre" id="genre">Genre / Style (optional)</h4>
-            <div class="dropzone"></div>
-            <div class="dropzone"></div>
-            <div class="dropzone"></div>
-            <div class="dropzone"></div>
+            <div id="0" class="dropzone"></div>
+            <div id="1" class="dropzone"></div>
+            <div id="2" class="dropzone"></div>
+            <div id="3" class="dropzone"></div>
         </div>
         <br>
         <div class="row">
-            <div class="dropzone"></div>
-            <div class="dropzone"></div>
-            <div class="dropzone"></div>
-            <div class="dropzone"></div>
+            <div id="4" class="dropzone"></div>
+            <div id="5" class="dropzone"></div>
+            <div id="6" class="dropzone"></div>
+            <div id="7" class="dropzone"></div>
         </div>
         <br>
       </div><!--close zone container -->
       <br>
-      <button type="button" id="build-btn" class="btn btn-warning btn-lg">Load New Rows</button>
+      <button type="button" id="build-btn" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-triangle-bottom"></span> Load New Rows</button>
 
-      <button id="save-btn" type="button" class="btn btn-success btn-lg">Save My Chart</button>
+      <button id="save-btn" type="button" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-floppy-save"></span> Save My Chart</button>
+      <br/>
+      <br/>
+      <div id="delete-box" class="dropzone trash"></div>
     </div>
 
     <div class="col-sm-4 col2 center">
@@ -40,13 +43,12 @@
         <div class="col-sm-12">
           <div class="jumbotron bottompad">
             <h2 class="darker">Album Search</h2>
-            <p class="about">Search for an album, then click-drag the result to the chart on the left. For best results, type in both <b>artist name</b> and <b>album name</b>.</p>
+            <p class="searchtext">Search for an album, then click-drag the result to the chart on the left. For best results, type in both <b>artist name</b> and <b>album name</b>.</p>
             <center><div id="title-editor" style="height: 50px; width: 178px; color: black"></div></center>
             <center><div id="example" style="height: 400px; width: 178px; color: black"></div></center>
           </div>
         </div>
         <br/>
-        <button type="button" id="delete-box" class="dropzone trash"></button>
 
     </div>
   </div>
