@@ -44,14 +44,13 @@ router.get('/build', function(req, res, next) {
 })
 .post('/edit', function(req, res, next) {
   console.log(req.session.chartID);
+  console.log(req.body.nameOfChart);
   console.log('hey man we tried to update it')
-    Chart.update({ _id: req.session.chartID }, {
-          nameOfChart : req.body.nameOfChart,
-          authorId    : req.session.currentUserId,
-          contents    : req.body.chart
-        })
-        res.render('chart-viewer', { title: 'View a Chart' })
-    })
+  Chart.findByIdAndUpdate(req.session.chartID, { nameOfChart: req.body.nameOfChart, contents: req.body.chart }, function (err, chart) {
+  console.log(chart);
+  })
+
+})
 
 .get('/edit', function(req, res, next) {
     req.session.chartID = req.body.chartID;

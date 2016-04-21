@@ -20,7 +20,7 @@ window.onload = function(event){
         })
 };
 
-document.getElementById('edit-btn').click(function(event){
+$('#edit-btn').click(function(event){
         event.preventDefault();
         console.log('we tried to save it, we really did');
         var contents = {
