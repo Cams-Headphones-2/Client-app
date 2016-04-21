@@ -51,21 +51,20 @@ var UserChart = React.createClass({
           <table class="table table" id="user-chart">
 
           <thead>
-            <tr>
+            <tr class="underlined">
               <th>Chart Name</th>
               <th><center>Edit</center></th>
               <th><center>Export</center></th>
-              <th><center>Share</center></th>
               <th><center>Remove</center></th>
             </tr>
           </thead>
-          <tbody>
+
             {
               this.state.charts.map(function(chart, i){
                 return <ChartDiv chartName={chart.nameOfChart} chartID={chart._id} key={i} />
               }.bind(this))
             }
-          </tbody>
+
           </table>
 
         )
@@ -75,15 +74,15 @@ var UserChart = React.createClass({
     var ChartDiv = React.createClass({
       render: function() {
         return (
+
             <tr>
               <td>{this.props.chartName}</td>
               <td><center><form action="/edit" method="post"><input type="hidden" name="chart-ID" value={this.props.chartID} />
-              <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon glyphicon-pencil">    <input type="hidden" name="chart-ID" value={this.props.chartID} />
-              </span></button></form></center></td>
+              <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon glyphicon-pencil">    <input type="hidden" name="chart-ID" value={this.props.chartID} /></span></button></form></center></td>
+
               <td><center><form action="/save" method="post"><input type="hidden" name="chart-ID" value={this.props.chartID} />
               <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon  glyphicon-floppy-save"></span></button></form></center></td>
-              <td><center><form action="/share" method="post"><input type="hidden" name="chart-ID" value={this.props.chartID} />
-              <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon  glyphicon-share"></span></button></form></center></td>
+
               <td><center><form action="/delete" method="post"><input type="hidden" name="chart-ID" value={this.props.chartID} />
               <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon  glyphicon-trash"></span></button></form></center></td>
             </tr>
