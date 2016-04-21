@@ -34,10 +34,7 @@ var UserChart = React.createClass({
                   self.state.charts.push(chart);
                   self.setState();
                   // self.setState(state);
-
-
                 })
-
               },
               error: function(err){
                 console.log(err)
@@ -81,7 +78,7 @@ var UserChart = React.createClass({
               <td>{this.props.chartName}</td>
 
               <td><center><form action="/edit" method="post"><input type="hidden" name="chartID" value={this.props.chartID} />
-              <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon glyphicon-pencil">    <input type="hidden" name="chart-ID" value={this.props.chartID} /></span></button></form></center></td>
+              <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon glyphicon-pencil">    <input type="hidden" name="chartID" value={this.props.chartID} /></span></button></form></center></td>
 
               <td><center><form action="/save" method="post"><input type="hidden" name="chartID" value={this.props.chartID} />
               <button type="submit" data-id={this.props.chartID} href="#"><span className="glyphicon  glyphicon-floppy-save"></span></button></form></center></td>
