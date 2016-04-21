@@ -1,5 +1,6 @@
 window.onload = function(event){
         event.preventDefault();
+        // $('#zone-container').innerHTML(contents);
         // console.log(contents)
         $.ajax({
           url: '/getchart',
@@ -9,7 +10,7 @@ window.onload = function(event){
           success: function(data){
             console.log(data)
             contents = data.contents;
-            // var contents = data.contents
+            var contents = data.contents
             $('#zone-container').append(contents);
 
           },
