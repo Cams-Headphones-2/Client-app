@@ -50,7 +50,7 @@ router.get('/build', function(req, res, next) {
   Chart.findByIdAndUpdate(req.session.chartID, { nameOfChart: req.body.nameOfChart, contents: req.body.chart }, function (err, chart) {
   console.log(chart);
   })
-
+  res.redirect('/account');
 })
 .get('/edit', function(req, res, next) {
     req.session.chartID = req.body.chartID;
