@@ -20,7 +20,13 @@ router.get('/', function(req, res, next) {
     })
 })
 
-
+// .post('/edit', function(req, res, next) {
+//   console.log(req);
+//   // if(req.session.loggedIn === true) {
+//   //   res.render('profile-edit', { title: "Edit my account" });
+//   // } else res.redirect('/login');
+//
+//     });
 .get('/editChart', function(req, res, next) {
   res.render('edit-chart', { title: "Edit your Chart" });
 })
@@ -28,6 +34,7 @@ router.get('/', function(req, res, next) {
   Chart.findOne({ _id: "CHART ID"}, function(err, chart) {
     chart.destory;
   });
+
 });
 
 

@@ -100,7 +100,6 @@ router.get('/', function(req, res, next) {
     res.redirect('/account');
   })
 })
-
 .get('/chartjson', function(req, res, next) {
   // if(req.session.loggedIn === true) {
     Chart.find(function(err, chart){
@@ -132,7 +131,6 @@ router.get('/', function(req, res, next) {
       } else console.log("no such chart exists");
     });
 })
-
 .get('/viewchart', function(req, res, next) {
     var thechart;
     req.session.chartID = req.body.chartID;
@@ -145,7 +143,6 @@ router.get('/', function(req, res, next) {
       } else console.log("no such chart exists");
     });
 })
-
 .get('/getchart', function(req, res, next) {
    Chart.findOne({ _id: req.session.chartID }, function(err, chart) {
      if (chart) {
@@ -154,7 +151,6 @@ router.get('/', function(req, res, next) {
      } else console.log("no such chart exists");
    });
 })
-
 .post('/edit', function(req, res, next) {
   console.log(req.body);
   console.log(req.body.chartID[0])
@@ -162,7 +158,6 @@ router.get('/', function(req, res, next) {
   //   res.render('profile-edit', { title: "Edit my account" });
   // } else res.redirect('/login');
 })
-
 .post('/delete', function(req, res, next) {
   console.log(req.body);
   console.log(req.body.chartID)
