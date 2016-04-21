@@ -20,8 +20,7 @@ window.onload = function(event){
         })
 };
 
-$('#edit-btn').click(function(event){
-        event.preventDefault();
+$('#edit-btn').click(function(){
         console.log('we tried to save it, we really did');
         var contents = {
           chart: document.getElementById('zone-container').innerHTML,
@@ -35,6 +34,8 @@ $('#edit-btn').click(function(event){
           dataType: 'json',
           success: function(){
             console.log('chart sent')
+            window.location.href = "/account";
+
           },
           error: function(err){
             console.log(err)
