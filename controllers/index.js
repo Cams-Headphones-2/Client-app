@@ -11,11 +11,13 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: '/Mu/sic Chart Generator | Create Your Own Music Flowcharts' });
 }) // ------------------ GET logout -------------------------
 .get('/logout', function(req, res, next) {
+  if (req.session.loggedIn === true) {
   req.session.loggedIn = null;
   req.session.currentUserId = null;
   req.session.currentUser = null;
   console.log('You have been logged out.');
   res.redirect('/');
+  }
 }) // ------------------ GET register ------------------------
 .get('/register', function(req, res, next) {
   if (req.session.loggedIn === true) {
