@@ -54,6 +54,12 @@ router.get('/build', function(req, res, next) {
         res.render('chart-viewer', { title: 'View a Chart' })
       } else res.redirect('/account');
     });
+})
+.get('/api/:id', function(req, res, next) {
+  Chart.findById(req.params.id, function(err, chart) {
+    if (err) return next(err);
+    res.json(chart);
+  });
 });
 
 module.exports = router;

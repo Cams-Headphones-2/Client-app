@@ -13,16 +13,13 @@ router.get('/', function(req, res, next) {
     Chart.find({ authorId: req.session.currentUserId }, function(err, chart) {
       res.send(chart);
     })
-})
-.get('/editChart', function(req, res, next) {
-  res.render('edit-chart', { title: "/Mu/sic Chart Generator | Edit Chart" });
-})
-.post('/edit', function(req, res, next) {
-  req.session.chartID = req.body.chartID;
-  Chart.find({ _id: req.session.chartID }, function(err, chart){
-    console.log(chart);
-  })
 });
+// .post('/edit', function(req, res, next) {
+//  req.session.chartID = req.body.chartID;
+//   Chart.find({ _id: req.session.chartID }, function(err, chart){
+//     console.log(chart);
+//   })
+// });
 
 
 module.exports = router;

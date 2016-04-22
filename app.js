@@ -64,28 +64,38 @@ app.use(function(req, res, next) {
 });
 
 // error handlers
+// production 404 handler
+app.use(function(err, req, res, next) {
+  res.status(404);
+  res.render('404', { title: "/Mu/sic Chart Generator | Not Found", message: "Well, this is embarassing. Something went wrong and now here you are... Rest assured our code monkeys lost their recess in order to fix this problem."});
+});
+
+app.use(function(err, req, res, next) {
+  res.status(500);
+  res.render('404', { title: "/Mu/sic Chart Generator | DENIED", message: "I'm sorry Dave, I can't let you do that. Permission dened."});
+})
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
-}
+// if (app.get('env') === 'development') {
+//   app.use(function(err, req, res, next) {
+//     res.status(err.status || 500);
+//     res.render('error', {
+//       message: err.message,
+//       error: err
+//     });
+//   });
+// }
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
-});
+// app.use(function(err, req, res, next) {
+//   res.status(err.status || 500);
+//   res.render('error', {
+//     message: err.message,
+//     error: {}
+//   });
+// });
 
 
 module.exports = app;
