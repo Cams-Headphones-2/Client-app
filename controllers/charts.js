@@ -60,12 +60,6 @@ router.get('/build', function(req, res, next) {
     if (err) return next(err);
     res.json(chart);
   });
-})
-.get('/api', function(req, res, next) {
-  Chart.find(function(err, chart) {
-    if (err) return next(err);
-    res.json(chart);
-  })
 });
 
 module.exports = router;

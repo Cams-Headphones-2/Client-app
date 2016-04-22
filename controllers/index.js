@@ -77,6 +77,12 @@ router.get('/', function(req, res, next) {
         res.redirect('/register');
       }
   });
+})
+.get('/api', function(req, res, next) {
+  Chart.find(function(err, charts) {
+    if (err) return next(err);
+    res.json(charts);
+  })
 });
 
 module.exports = router;
