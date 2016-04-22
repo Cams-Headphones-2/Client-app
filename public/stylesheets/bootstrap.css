@@ -6742,11 +6742,6 @@ p {
   text-align: center;
   color: #222222;
 }
-.searchtext {
-  font-size: 14px;
-  text-align: center;
-  color: #222222;
-}
 .album-div {
   height: 248px;
   width: 176px;
@@ -6803,7 +6798,19 @@ p {
   color: #222222;
 }
 .bottompad {
-  height: 700px;
+  height: 510px;
+  padding-top: 5px;
+  position: fixed;
+  width: 330px;
+}
+.bottompad .searchtext {
+  font-size: 14px;
+  text-align: center;
+  color: #222222;
+}
+.editor {
+  padding-top: 5px;
+  width: 330px;
 }
 .album-name {
   font-style: italic;
