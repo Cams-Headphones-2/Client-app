@@ -11,11 +11,15 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: '/Mu/sic Chart Generator | Create Your Own Music Flowcharts' });
 }) // ------------------ GET logout -------------------------
 .get('/logout', function(req, res, next) {
-  req.session.loggedIn = null;
-  req.session.currentUserId = null;
-  req.session.currentUser = null;
-  console.log('You have been logged out.');
-  res.redirect('/');
+  if (req.session.loggedIn === true) {
+    req.session.loggedIn = null;
+    req.session.currentUserId = null;
+    req.session.currentUser = null;
+    console.log('You have been logged out.');
+    res.redirect('/');
+  } else {
+    res.redirect('/');
+  }
 }) // ------------------ GET register ------------------------
 .get('/register', function(req, res, next) {
   if (req.session.loggedIn === true) {
@@ -73,6 +77,12 @@ router.get('/', function(req, res, next) {
         res.redirect('/register');
       }
   });
+})
+.get('/api', function(req, res, next) {
+  Chart.find(function(err, charts) {
+    if (err) return next(err);
+    res.json(charts);
+  })
 });
 
 module.exports = router;
