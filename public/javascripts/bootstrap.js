@@ -30,10 +30,10 @@ if (typeof jQuery === 'undefined') {
 
   // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
   // ============================================================
-  $("#navbar a").on("click", function(){
-     $(".nav").find(".active").removeClass("active");
-     $(this).parent().addClass("active");
-  });
+    $('#save-btn').click(function() {
+     $('#save-alert').show();
+  })
+
 
   function transitionEnd() {
     var el = document.createElement('bootstrap')
