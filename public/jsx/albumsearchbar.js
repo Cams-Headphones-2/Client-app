@@ -53,8 +53,8 @@ var ArtistForm = React.createClass({
         console.log(this);
 
         var lastfm = new LastFM({
-              apiKey    : 'f21088bf9097b49ad4e7f487abab981e',
-              apiSecret : '7ccaec2093e33cded282ec7bc81c6fca',
+              apiKey    : process.env.API_KEY,
+              apiSecret : process.env.API_KEY,
               cache     : cache
             });
         lastfm.album.search({album: self.state.albumSearch}, {success: function(data){
