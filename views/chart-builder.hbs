@@ -13,18 +13,16 @@
             <div id="3" class="dropzone"></div>
         </div>
         <br>
-        <div class="row">
-            <div id="4" class="dropzone"></div>
-            <div id="5" class="dropzone"></div>
-            <div id="6" class="dropzone"></div>
-            <div id="7" class="dropzone"></div>
-        </div>
-        <br>
       </div><!--close zone container -->
       <br>
       <button type="button" id="build-btn" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-triangle-bottom"></span> Load New Rows</button>
 
       <button id="save-btn" type="button" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-floppy-save"></span> Save My Chart</button>
+
+      <div id="save-alert">
+        <strong>Success!</strong> Your chart has been saved. <a href="/account">Click here to go to my Account.</a>
+      </div>
+
       <br/>
       <br/>
       <div id="delete-box" class="dropzone trash"></div>
@@ -32,7 +30,7 @@
 
     <div class="col-xs-12 col-sm-5 col-md-6 col-lg-4 col2 center">
         <div class="col-sm-12">
-          <div class="jumbotron">
+          <div class="jumbotron editor">
             <h2 class="darker">Title Editor</h2>
             <center><div id="title-editor" style="height: 50px; width: 178px; color: black"></div></center>
           </div>
@@ -44,11 +42,11 @@
           <div class="jumbotron bottompad">
             <h2 class="darker">Album Search</h2>
             <p class="searchtext">Search for an album, then click-drag the result to the chart on the left. For best results, type in both <b>artist name</b> and <b>album name</b>.</p>
-            <center><div id="title-editor" style="height: 50px; width: 178px; color: black"></div></center>
+
             <center><div id="example" style="height: 400px; width: 178px; color: black"></div></center>
           </div>
         </div>
-        <br/>
+
 
     </div>
   </div>
