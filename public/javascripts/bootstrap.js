@@ -34,6 +34,12 @@ if (typeof jQuery === 'undefined') {
      $('#save-alert').show();
   })
 
+  $('#edit-btn').click(function() {
+   $('#save-alert').show();
+   console.log("you clicked the edit button!")
+})
+
+
 
   function transitionEnd() {
     var el = document.createElement('bootstrap')
