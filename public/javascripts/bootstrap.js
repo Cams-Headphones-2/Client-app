@@ -31,11 +31,17 @@ if (typeof jQuery === 'undefined') {
   // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
   // ============================================================
     $('#save-btn').click(function() {
-     $('#save-alert').show();
+    //  $('#save-alert').fadeIn(500).fadeOut(5000)
+    $('#save-alert').show()
+
+     $('#save-btn').hide();
   })
 
   $('#edit-btn').click(function() {
-   $('#save-alert').show();
+    $('#save-alert').show().fadeOut(10000)
+
+  //  $('#save-alert').show().setTimeout(function()
+  //  {$('#save-alert').fadeOut(2000)}, 3000);
    console.log("you clicked the edit button!")
 })
 
