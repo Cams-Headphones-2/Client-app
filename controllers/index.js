@@ -83,6 +83,12 @@ router.get('/', function(req, res, next) {
     if (err) return next(err);
     res.json(charts);
   })
+})
+.get('/sitemap.xml', function(req, res, next) {
+  res.sendFile(__dirname + '/public/sitemap.xml');
+})
+.get('robots.txt', function(req, res, next) {
+  res.sendFile(__dirname + '/public/robots.txt');
 });
 
 module.exports = router;

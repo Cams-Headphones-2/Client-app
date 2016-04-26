@@ -1,0 +1,5 @@
+
+User-Agent: *
+Disallow:
+
+Sitemap: http://muchartgenerator.com/sitemap.xml
