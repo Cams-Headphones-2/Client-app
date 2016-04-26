@@ -64,7 +64,7 @@ var ArtistForm = React.createClass({
               console.log(data.results.albummatches.album[0].artist);
 
               document.getElementById('results-zone').innerHTML = "";
-              document.getElementById('search-box').val = "g";
+              document.getElementById('search-box').val = "";
 
 
               var state = self.state;
