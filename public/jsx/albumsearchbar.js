@@ -87,12 +87,6 @@ var ArtistForm = React.createClass({
 
               console.log(self.state.albums);
 
-              // var albumDiv = $('<div draggable="true" class="album-div" style="height: 248px; width: 176px; border: 1px dashed; background-color: lightgreen"></div>');
-              // $(albumDiv).append('<img draggable="false" src ="' + albumCover + '">');
-              // $(albumDiv).append('<p>' + albumName + '</p>');
-              // $(albumDiv).append('<p>' + albumArtist + '</p>');
-              // $('#results-appender').append(albumDiv);
-
 
             }, error: function(code, message){
             /* Show error message. */
